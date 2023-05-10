@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameScript">
+    <Position X="0.5" Y="0.5" Width="4.75" />
+    <Members>
+      <Method Name="bluePlayerI_UI" Hidden="true" />
+      <Method Name="bluePlayerII_UI" Hidden="true" />
+      <Method Name="bluePlayerIII_UI" Hidden="true" />
+      <Method Name="bluePlayerIV_UI" Hidden="true" />
+      <Method Name="greenPlayerI_UI" Hidden="true" />
+      <Method Name="greenPlayerII_UI" Hidden="true" />
+      <Method Name="greenPlayerIII_UI" Hidden="true" />
+      <Method Name="greenPlayerIV_UI" Hidden="true" />
+      <Method Name="redPlayerI_UI" Hidden="true" />
+      <Method Name="redPlayerII_UI" Hidden="true" />
+      <Method Name="redPlayerIII_UI" Hidden="true" />
+      <Method Name="redPlayerIV_UI" Hidden="true" />
+      <Method Name="yellowPlayerI_UI" Hidden="true" />
+      <Method Name="yellowPlayerII_UI" Hidden="true" />
+      <Method Name="yellowPlayerIII_UI" Hidden="true" />
+      <Method Name="yellowPlayerIV_UI" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>soSkJ0EDBTZ6RMKUD+KmCL2iIwBE25LQh6UhN3EI1hw=</HashCode>
+      <FileName>Assets\Scripts\GameScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
