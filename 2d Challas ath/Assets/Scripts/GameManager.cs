@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     public List<BounceAnimation> animGreenPlayer = new List<BounceAnimation>();
     public List<BounceAnimation> animBluePlayer = new List<BounceAnimation>();
     public List<BounceAnimation> animYellowPlayer = new List<BounceAnimation>();
+    public bool shouldMakeEight;
     #endregion
     #region Confirm Screeen
     public void yesMethod()
@@ -730,7 +731,9 @@ public class GameManager : MonoBehaviour
 
         selectDiceNumAnimation = randomNo.Next(1, 6);
         if (selectDiceNumAnimation == 5) { selectDiceNumAnimation = 8; }
-        selectDiceNumAnimation = 8;
+
+        if(shouldMakeEight)
+            selectDiceNumAnimation = 8;
         switch (selectDiceNumAnimation)
         {
             case 1:
@@ -777,9 +780,6 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     SetPlayer(TagHolder.RED, 1, false);
-                 
-
-
                 }
 
                 if ((redMovementBlocks.Count - redPlayerII_Steps) >= selectDiceNumAnimation && redPlayerII_Steps > 0 && (redMovementBlocks.Count > redPlayerII_Steps))
@@ -1079,17 +1079,51 @@ public class GameManager : MonoBehaviour
                     iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 175, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
             }
-
-            if (selectDiceNumAnimation == 8 && redPlayerI_Steps == 0)
+            else
             {
-                Vector3[] redPlayer_Path = new Vector3[1];
-                redPlayer_Path[0] = redMovementBlocks[redPlayerI_Steps].transform.position;
-                redPlayerI_Steps += 1;
-                playerTurn = "RED";
-                //currentPlayer = RedPlayerI_Script.redPlayerI_ColName;
-                curruntPlayerName = PlayerName.RED_PLAYER_1;
+                if (selectDiceNumAnimation == 8 && redPlayerI_Steps == 0)
+                {
+                    Vector3[] redPlayer_Path = new Vector3[1];
+                    redPlayer_Path[0] = redMovementBlocks[redPlayerI_Steps].transform.position;
+                    redPlayerI_Steps += 1;
+                    playerTurn = "RED";
+                    //currentPlayer = RedPlayerI_Script.redPlayerI_ColName;
+                    curruntPlayerName = PlayerName.RED_PLAYER_1;
 
-                iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                    iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                } 
+            }
+            
+        }
+        else
+        {
+            // Condition when Player Coin is reached successfully in House....(Actual Number of required moves to get into the House)
+            if (playerTurn == "RED" && (redMovementBlocks.Count - redPlayerI_Steps) == selectDiceNumAnimation)
+            {
+                Vector3[] redPlayer_Path = new Vector3[selectDiceNumAnimation];
+
+                for (int i = 0; i < selectDiceNumAnimation; i++)
+                {
+                    redPlayer_Path[i] = redMovementBlocks[redPlayerI_Steps + i].transform.position;
+                }
+
+                redPlayerI_Steps += selectDiceNumAnimation;
+
+                playerTurn = TagHolder.RED;
+
+                //redPlayerI_Steps = 0;
+
+                if (redPlayer_Path.Length > 1)
+                {
+                    iTween.MoveTo(redPlayerI, iTween.Hash("path", redPlayer_Path, "speed", 125, "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                }
+                else
+                {
+                    iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                }
+                totalRedInHouse += 1;
+                Debug.Log("Cool !!");
+                RedPlayerI_Button.enabled = false;
             }
         }
 
