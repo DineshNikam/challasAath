@@ -732,7 +732,7 @@ public class GameManager : MonoBehaviour
         selectDiceNumAnimation = randomNo.Next(1, 6);
         if (selectDiceNumAnimation == 5) { selectDiceNumAnimation = 8; }
 
-        if(shouldMakeEight)
+        if (shouldMakeEight)
             selectDiceNumAnimation = 8;
         switch (selectDiceNumAnimation)
         {
@@ -775,7 +775,7 @@ public class GameManager : MonoBehaviour
                 if ((redMovementBlocks.Count - redPlayerI_Steps) >= selectDiceNumAnimation && redPlayerI_Steps > 0 && (redMovementBlocks.Count > redPlayerI_Steps))
                 {
                     SetPlayer(TagHolder.RED, 1, true);
-                   
+
                 }
                 else
                 {
@@ -810,8 +810,8 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    SetPlayer(TagHolder.RED, 4, false);
 
+                    SetPlayer(TagHolder.RED, 4, false);
                 }
 
                 //========================= PLAYERS BORDER GLOW WHEN OPENING ===========================================
@@ -866,6 +866,28 @@ public class GameManager : MonoBehaviour
             #endregion
             case TagHolder.GREEN:
                 #region Green
+                //==================== CONDITION FOR BORDER GLOW ========================
+                if ((greenMovementBlocks.Count - greenPlayerI_Steps) >= selectDiceNumAnimation && greenPlayerI_Steps > 0 && (greenMovementBlocks.Count > greenPlayerI_Steps))
+
+                    SetPlayer(TagHolder.GREEN, 1, true);
+                else SetPlayer(TagHolder.GREEN, 1, false);
+
+
+                if ((greenMovementBlocks.Count - greenPlayerII_Steps) >= selectDiceNumAnimation && greenPlayerII_Steps > 0 && (greenMovementBlocks.Count > greenPlayerII_Steps))
+
+                    SetPlayer(TagHolder.GREEN, 2, true);
+                else SetPlayer(TagHolder.GREEN, 2, false);
+
+
+                if ((greenMovementBlocks.Count - greenPlayerIII_Steps) >= selectDiceNumAnimation && greenPlayerIII_Steps > 0 && (greenMovementBlocks.Count > greenPlayerIII_Steps))
+                    SetPlayer(TagHolder.GREEN, 3, true);
+                else SetPlayer(TagHolder.GREEN, 3, false);
+
+
+                if ((greenMovementBlocks.Count - greenPlayerIV_Steps) >= selectDiceNumAnimation && greenPlayerIV_Steps > 0 && (greenMovementBlocks.Count > greenPlayerIV_Steps))
+                    SetPlayer(TagHolder.GREEN, 4, true);
+                else SetPlayer(TagHolder.GREEN, 4, false);
+
                 //==========================Glow Border when dice hit 8 and player inside house==========================================
 
                 if (selectDiceNumAnimation == 8 && greenPlayerI_Steps == 0)
@@ -919,6 +941,35 @@ public class GameManager : MonoBehaviour
             #endregion
             case TagHolder.BLUE:
                 #region Blue
+                //==================== CONDITION FOR BORDER GLOW ========================
+                if ((blueMovementBlocks.Count - bluePlayerI_Steps) >= selectDiceNumAnimation && bluePlayerI_Steps > 0 && (blueMovementBlocks.Count > bluePlayerI_Steps))
+
+                    SetPlayer(TagHolder.BLUE, 1, true);
+                else
+
+                    SetPlayer(TagHolder.BLUE, 1, false);
+
+                if ((blueMovementBlocks.Count - bluePlayerII_Steps) >= selectDiceNumAnimation && bluePlayerII_Steps > 0 && (blueMovementBlocks.Count > bluePlayerII_Steps))
+                    SetPlayer(TagHolder.BLUE, 2, true);
+                else
+                    SetPlayer(TagHolder.BLUE, 2, false);
+
+
+
+
+                if ((blueMovementBlocks.Count - bluePlayerIII_Steps) >= selectDiceNumAnimation && bluePlayerIII_Steps > 0 && (blueMovementBlocks.Count > bluePlayerIII_Steps))
+                    SetPlayer(TagHolder.BLUE, 3, true);
+                else
+                    SetPlayer(TagHolder.BLUE, 3, false);
+
+
+
+                if ((blueMovementBlocks.Count - bluePlayerIV_Steps) >= selectDiceNumAnimation && bluePlayerIV_Steps > 0 && (blueMovementBlocks.Count > bluePlayerIV_Steps))
+                    SetPlayer(TagHolder.BLUE, 4, true);
+                else
+                    SetPlayer(TagHolder.BLUE, 4, false);
+
+
                 //==========================Glow Border when dice hit 8 and player inside house==========================================
                 if (selectDiceNumAnimation == 8 && bluePlayerI_Steps == 0)
                 {
@@ -967,6 +1018,48 @@ public class GameManager : MonoBehaviour
             #endregion
             case TagHolder.YELLOW:
                 #region Yellow
+                //==================== CONDITION FOR BORDER GLOW ========================
+                if ((yellowMovementBlocks.Count - yellowPlayerI_Steps) >= selectDiceNumAnimation && yellowPlayerI_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerI_Steps))
+                {
+
+                    SetPlayer(TagHolder.YELLOW, 1, true);
+                }
+                else
+                {
+                    SetPlayer(TagHolder.YELLOW, 1, false);
+
+                }
+
+                if ((yellowMovementBlocks.Count - yellowPlayerII_Steps) >= selectDiceNumAnimation && yellowPlayerII_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerII_Steps))
+                {
+
+                    SetPlayer(TagHolder.YELLOW, 2, true);
+                }
+                else
+                {
+
+                    SetPlayer(TagHolder.YELLOW, 2, false);
+                }
+
+                if ((yellowMovementBlocks.Count - yellowPlayerIII_Steps) >= selectDiceNumAnimation && yellowPlayerIII_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerIII_Steps))
+                {
+                    SetPlayer(TagHolder.YELLOW, 3, true);
+                }
+                else
+                {
+                    SetPlayer(TagHolder.YELLOW, 3, false);
+
+                }
+
+                if ((yellowMovementBlocks.Count - yellowPlayerIV_Steps) >= selectDiceNumAnimation && yellowPlayerIV_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerIV_Steps))
+                {
+                    SetPlayer(TagHolder.YELLOW, 4, true);
+                }
+                else
+                {
+                    SetPlayer(TagHolder.YELLOW, 4, false);
+
+                }
                 //==========================Glow Border when dice hit 8 and player inside house==========================================
 
 
@@ -1021,113 +1114,477 @@ public class GameManager : MonoBehaviour
 
 
 
-
-    public void RedPlayer1Mmovement()
+    public void PlayerMovement(string _color, List<GameObject> _MovementBlocks, ref int playerSteps, string _curruntPlayerName, ref GameObject _playerObject,
+                                        ref int _TotalPlayersInHouse, ref Button _PlayerButton, int _OtherPlayerStepsAddition)
     {
         SoundManagerScript.playerAudioSource.Play();
-        SetBorder(TagHolder.RED);
-        SetPlayersAnimation(TagHolder.RED);
-        SetButton(TagHolder.RED);
+        SetBorder(_color);
+        SetPlayersAnimation(_color);
+        SetButton(_color);
         // 24          -      [0-24]                 
-        if (playerTurn == "RED" && (redMovementBlocks.Count - redPlayerI_Steps) > selectDiceNumAnimation)//dice outcome is small than remaining steps to take
+        if (playerTurn == _color && (_MovementBlocks.Count - playerSteps) > selectDiceNumAnimation)//dice outcome is small than remaining steps to take
         {
 
-            if (redPlayerI_Steps > 0)
+            if (playerSteps > 0)
             {
 
-                Vector3[] redPlayer_Path = new Vector3[selectDiceNumAnimation];
+                Vector3[] Player_Path = new Vector3[selectDiceNumAnimation];
 
-                for (int i = 0; i < redPlayer_Path.Length; i++)
+                for (int i = 0; i < Player_Path.Length; i++)
                 {
-                    redPlayer_Path[i] = redMovementBlocks[redPlayerI_Steps + i].transform.position;
+                    Player_Path[i] = _MovementBlocks[playerSteps + i].transform.position;
                 }
 
-                redPlayerI_Steps += selectDiceNumAnimation;
+                playerSteps += selectDiceNumAnimation;
 
                 if (selectDiceNumAnimation == 8)
                 {
-                    playerTurn = "RED";
+                    playerTurn = _color;
                 }
                 else
                 {
-                    switch (MainMenuScript.howManyPlayers)
+                    if (_color == TagHolder.RED)
                     {
-                        case 2:
-                            playerTurn = "GREEN";
-                            break;
 
-                        case 3:
-                            playerTurn = "BLUE";
-                            break;
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                playerTurn = "GREEN";
+                                break;
 
-                        case 4:
-                            playerTurn = "BLUE";
-                            break;
+                            case 3:
+                                playerTurn = "BLUE";
+                                break;
+
+                            case 4:
+                                playerTurn = "BLUE";
+                                break;
+                        }
+                    }
+                    if (_color == TagHolder.GREEN)
+                    {
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                playerTurn = "RED";
+                                break;
+
+                            case 3:
+                                //Player is not available
+                                break;
+
+                            case 4:
+                                playerTurn = "YELLOW";
+                                break;
+                        }
+                    }
+                    if (_color == TagHolder.BLUE)
+                    {
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                // Player is not available...
+                                break;
+
+                            case 3:
+                                playerTurn = "YELLOW";
+                                break;
+
+                            case 4:
+                                playerTurn = "GREEN";
+                                break;
+                        }
+                    }
+                    if (_color == TagHolder.YELLOW)
+                    {
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                // Player is not available...
+                                break;
+
+                            case 3:
+                                playerTurn = "RED";
+                                break;
+
+                            case 4:
+                                playerTurn = "RED";
+                                break;
+                        }
                     }
                 }
 
-                curruntPlayerName = PlayerName.RED_PLAYER_1;
+                curruntPlayerName = _curruntPlayerName;
 
-                //if(redPlayerI_Steps + selectDiceNumAnimation == redMovementBlocks.Count)
-                if (redPlayer_Path.Length > 1)
+                //if(playerSteps + selectDiceNumAnimation == redMovementBlocks.Count)
+                if (Player_Path.Length > 1)
                 {
-                    //redPlayerI.transform.DOPath (redPlayer_Path, 2.0f, PathType.Linear, PathMode.Full3D, 10, Color.red);
-                    iTween.MoveTo(redPlayerI, iTween.Hash("path", redPlayer_Path, "speed", 175, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                    //_playerObject.transform.DOPath (Player_Path, 2.0f, PathType.Linear, PathMode.Full3D, 10, Color.red);
+                    iTween.MoveTo(_playerObject, iTween.Hash("path", Player_Path, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
                 else
                 {
-                    iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 175, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
             }
             else
             {
-                if (selectDiceNumAnimation == 8 && redPlayerI_Steps == 0)
+                if (selectDiceNumAnimation == 8 && playerSteps == 0)
                 {
-                    Vector3[] redPlayer_Path = new Vector3[1];
-                    redPlayer_Path[0] = redMovementBlocks[redPlayerI_Steps].transform.position;
-                    redPlayerI_Steps += 1;
-                    playerTurn = "RED";
+                    Vector3[] Player_Path = new Vector3[1];
+                    Player_Path[0] = _MovementBlocks[playerSteps].transform.position;
+                    playerSteps += 1;
+                    playerTurn = _color;
                     //currentPlayer = RedPlayerI_Script.redPlayerI_ColName;
-                    curruntPlayerName = PlayerName.RED_PLAYER_1;
+                    curruntPlayerName = _curruntPlayerName;
 
-                    iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
-                } 
+                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                }
             }
-            
+
         }
         else
         {
             // Condition when Player Coin is reached successfully in House....(Actual Number of required moves to get into the House)
-            if (playerTurn == "RED" && (redMovementBlocks.Count - redPlayerI_Steps) == selectDiceNumAnimation)
+            if (playerTurn == _color && (_MovementBlocks.Count - playerSteps) == selectDiceNumAnimation)
             {
-                Vector3[] redPlayer_Path = new Vector3[selectDiceNumAnimation];
+                Vector3[] Player_Path = new Vector3[selectDiceNumAnimation];
 
                 for (int i = 0; i < selectDiceNumAnimation; i++)
                 {
-                    redPlayer_Path[i] = redMovementBlocks[redPlayerI_Steps + i].transform.position;
+                    Player_Path[i] = _MovementBlocks[playerSteps + i].transform.position;
                 }
 
-                redPlayerI_Steps += selectDiceNumAnimation;
+                playerSteps += selectDiceNumAnimation;
 
-                playerTurn = TagHolder.RED;
+                playerTurn = _color;
 
-                //redPlayerI_Steps = 0;
+                //playerSteps = 0;
 
-                if (redPlayer_Path.Length > 1)
+                if (Player_Path.Length > 1)
                 {
-                    iTween.MoveTo(redPlayerI, iTween.Hash("path", redPlayer_Path, "speed", 125, "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                    iTween.MoveTo(_playerObject, iTween.Hash("path", Player_Path, "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
                 else
                 {
-                    iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
-                totalRedInHouse += 1;
+                _TotalPlayersInHouse += 1;
                 Debug.Log("Cool !!");
-                RedPlayerI_Button.enabled = false;
+                _PlayerButton.enabled = false;
+            }
+            else
+            {
+                Debug.Log("You need " + (_MovementBlocks.Count - playerSteps).ToString() + " to enter into the house.");
+
+                if (_OtherPlayerStepsAddition == 0 && selectDiceNumAnimation != 6)
+                {
+                    if (_color == TagHolder.RED)
+                    {
+
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                playerTurn = "GREEN";
+                                break;
+
+                            case 3:
+                                playerTurn = "BLUE";
+                                break;
+
+                            case 4:
+                                playerTurn = "BLUE";
+                                break;
+                        }
+                    }
+                    if (_color == TagHolder.GREEN)
+                    {
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                playerTurn = "RED";
+                                break;
+
+                            case 3:
+                                //Player is not available
+                                break;
+
+                            case 4:
+                                playerTurn = "YELLOW";
+                                break;
+                        }
+                    }
+                    if (_color == TagHolder.BLUE)
+                    {
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                // Player is not available...
+                                break;
+
+                            case 3:
+                                playerTurn = "YELLOW";
+                                break;
+
+                            case 4:
+                                playerTurn = "GREEN";
+                                break;
+                        }
+                    }
+                    if (_color == TagHolder.YELLOW)
+                    {
+                        switch (MainMenuScript.howManyPlayers)
+                        {
+                            case 2:
+                                // Player is not available...
+                                break;
+
+                            case 3:
+                                playerTurn = "RED";
+                                break;
+
+                            case 4:
+                                playerTurn = "RED";
+                                break;
+                        }
+                    }
+                    InitializeDice();
+                }
             }
         }
-
     }
+
+    #region Red Player Movement
+    public void RedPlayer1Movement()
+    {
+        PlayerMovement(TagHolder.RED, redMovementBlocks, ref redPlayerI_Steps, PlayerName.RED_PLAYER_1, ref redPlayerI, ref totalRedInHouse, ref RedPlayerI_Button,
+            redPlayerII_Steps + redPlayerIII_Steps + redPlayerIV_Steps);
+    }
+
+    public void RedPlayer2Movement()
+    {
+        PlayerMovement(TagHolder.RED, redMovementBlocks, ref redPlayerII_Steps, PlayerName.RED_PLAYER_2, ref redPlayerII, ref totalRedInHouse, ref RedPlayerII_Button,
+            redPlayerI_Steps + redPlayerIII_Steps + redPlayerIV_Steps);
+    }
+    public void RedPlayer3Movement()
+    {
+        PlayerMovement(TagHolder.RED, redMovementBlocks, ref redPlayerIII_Steps, PlayerName.RED_PLAYER_3, ref redPlayerIII, ref totalRedInHouse, ref RedPlayerIII_Button,
+            redPlayerII_Steps + redPlayerI_Steps + redPlayerIV_Steps);
+    }
+    public void RedPlayer4Movement()
+    {
+        PlayerMovement(TagHolder.RED, redMovementBlocks, ref redPlayerIV_Steps, PlayerName.RED_PLAYER_4, ref redPlayerIV, ref totalRedInHouse, ref RedPlayerIV_Button,
+            redPlayerII_Steps + redPlayerIII_Steps + redPlayerI_Steps);
+    }
+    #endregion
+    #region Blue Player Movement
+    public void BluePlayer1Movement()
+    {
+        PlayerMovement(TagHolder.BLUE, blueMovementBlocks, ref bluePlayerI_Steps, PlayerName.BLUE_PLAYER_1, ref bluePlayerI, 
+            ref totalBlueInHouse, ref BluePlayerI_Button,
+            bluePlayerII_Steps + bluePlayerIII_Steps + bluePlayerIV_Steps);
+    }
+    public void BluePlayer2Movement()
+    {
+        PlayerMovement(TagHolder.BLUE, blueMovementBlocks, ref bluePlayerII_Steps, PlayerName.BLUE_PLAYER_2, ref bluePlayerII,
+            ref totalBlueInHouse, ref BluePlayerII_Button,
+            bluePlayerI_Steps + bluePlayerIII_Steps + bluePlayerIV_Steps);
+    }
+    public void BluePlayer3Movement()
+    {
+        PlayerMovement(TagHolder.BLUE, blueMovementBlocks, ref bluePlayerIII_Steps, PlayerName.BLUE_PLAYER_3, ref bluePlayerIII,
+            ref totalBlueInHouse, ref BluePlayerIII_Button,
+            bluePlayerII_Steps + bluePlayerI_Steps + bluePlayerIV_Steps);
+    }
+    public void BluePlayer4Movement()
+    {
+        PlayerMovement(TagHolder.BLUE, blueMovementBlocks, ref bluePlayerIV_Steps, PlayerName.BLUE_PLAYER_4, ref bluePlayerIV,
+            ref totalBlueInHouse, ref BluePlayerIV_Button,
+            bluePlayerII_Steps + bluePlayerIII_Steps + bluePlayerI_Steps);
+    }
+    #endregion
+    #region Green Player Movement
+    public void GreenPlayer1Movement()
+    {
+        PlayerMovement(TagHolder.GREEN, greenMovementBlocks, ref greenPlayerI_Steps, PlayerName.GREEN_PLAYER_1, ref greenPlayerI, ref totalGreenInHouse, ref GreenPlayerI_Button,
+            greenPlayerII_Steps + greenPlayerIII_Steps + greenPlayerIV_Steps);
+    }
+    public void GreenPlayer2Movement()
+    {
+        PlayerMovement(TagHolder.GREEN, greenMovementBlocks, ref greenPlayerII_Steps, PlayerName.GREEN_PLAYER_2, ref greenPlayerII, ref totalGreenInHouse, ref GreenPlayerII_Button,
+            greenPlayerI_Steps + greenPlayerIII_Steps + greenPlayerIV_Steps);
+    }
+    public void GreenPlayer3Movement()
+    {
+        PlayerMovement(TagHolder.GREEN, greenMovementBlocks, ref greenPlayerIII_Steps, PlayerName.GREEN_PLAYER_3, ref greenPlayerIII, ref totalGreenInHouse, ref GreenPlayerIII_Button,
+            greenPlayerII_Steps + greenPlayerI_Steps + greenPlayerIV_Steps);
+    }
+    public void GreenPlayer4Movement()
+    {
+        PlayerMovement(TagHolder.GREEN, greenMovementBlocks, ref greenPlayerIV_Steps, PlayerName.GREEN_PLAYER_4, ref greenPlayerIV, ref totalGreenInHouse, ref GreenPlayerIV_Button,
+            greenPlayerII_Steps + greenPlayerIII_Steps + greenPlayerI_Steps);
+    }
+    #endregion
+    #region Yellow Player Movement
+    public void YellowPlayer1Movement()
+    {
+        PlayerMovement(TagHolder.YELLOW, yellowMovementBlocks, ref yellowPlayerI_Steps, PlayerName.YELLOW_PLAYER_1, ref yellowPlayerI,
+            ref totalYellowInHouse, ref YellowPlayerI_Button,
+            yellowPlayerII_Steps + yellowPlayerIII_Steps + yellowPlayerIV_Steps);
+    }
+    public void YellowPlayer2Movement()
+    {
+        PlayerMovement(TagHolder.YELLOW, yellowMovementBlocks, ref yellowPlayerII_Steps, PlayerName.YELLOW_PLAYER_2, ref yellowPlayerII,
+            ref totalYellowInHouse, ref YellowPlayerII_Button,
+            yellowPlayerI_Steps + yellowPlayerIII_Steps + yellowPlayerIV_Steps);
+    }
+    public void YellowPlayer3Movement()
+    {
+        PlayerMovement(TagHolder.YELLOW, yellowMovementBlocks, ref yellowPlayerIII_Steps, PlayerName.YELLOW_PLAYER_3, ref yellowPlayerIII,
+            ref totalYellowInHouse, ref YellowPlayerIII_Button,
+            yellowPlayerII_Steps + yellowPlayerI_Steps + yellowPlayerIV_Steps);
+    }
+    public void YellowPlayer4Movement()
+    {
+        PlayerMovement(TagHolder.YELLOW, yellowMovementBlocks, ref yellowPlayerIV_Steps, PlayerName.YELLOW_PLAYER_4, ref yellowPlayerIV,
+            ref totalYellowInHouse, ref YellowPlayerIV_Button,
+            yellowPlayerII_Steps + yellowPlayerIII_Steps + yellowPlayerI_Steps);
+    }
+    #endregion
+
+
+    #region player movement commented
+
+
+    //public void RedPlayer1Mmovement()
+    //{
+    //    SoundManagerScript.playerAudioSource.Play();
+    //    SetBorder(TagHolder.RED);
+    //    SetPlayersAnimation(TagHolder.RED);
+    //    SetButton(TagHolder.RED);
+    //    // 24          -      [0-24]                 
+    //    if (playerTurn == "RED" && (redMovementBlocks.Count - redPlayerI_Steps) > selectDiceNumAnimation)//dice outcome is small than remaining steps to take
+    //    {
+
+    //        if (redPlayerI_Steps > 0)
+    //        {
+
+    //            Vector3[] redPlayer_Path = new Vector3[selectDiceNumAnimation];
+
+    //            for (int i = 0; i < redPlayer_Path.Length; i++)
+    //            {
+    //                redPlayer_Path[i] = redMovementBlocks[redPlayerI_Steps + i].transform.position;
+    //            }
+
+    //            redPlayerI_Steps += selectDiceNumAnimation;
+
+    //            if (selectDiceNumAnimation == 8)
+    //            {
+    //                playerTurn = "RED";
+    //            }
+    //            else
+    //            {
+    //                switch (MainMenuScript.howManyPlayers)
+    //                {
+    //                    case 2:
+    //                        playerTurn = "GREEN";
+    //                        break;
+
+    //                    case 3:
+    //                        playerTurn = "BLUE";
+    //                        break;
+
+    //                    case 4:
+    //                        playerTurn = "BLUE";
+    //                        break;
+    //                }
+    //            }
+
+    //            curruntPlayerName = PlayerName.RED_PLAYER_1;
+
+    //            //if(redPlayerI_Steps + selectDiceNumAnimation == redMovementBlocks.Count)
+    //            if (redPlayer_Path.Length > 1)
+    //            {
+    //                //redPlayerI.transform.DOPath (redPlayer_Path, 2.0f, PathType.Linear, PathMode.Full3D, 10, Color.red);
+    //                iTween.MoveTo(redPlayerI, iTween.Hash("path", redPlayer_Path, "speed", 175, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+    //            }
+    //            else
+    //            {
+    //                iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 175, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (selectDiceNumAnimation == 8 && redPlayerI_Steps == 0)
+    //            {
+    //                Vector3[] redPlayer_Path = new Vector3[1];
+    //                redPlayer_Path[0] = redMovementBlocks[redPlayerI_Steps].transform.position;
+    //                redPlayerI_Steps += 1;
+    //                playerTurn = "RED";
+    //                //currentPlayer = RedPlayerI_Script.redPlayerI_ColName;
+    //                curruntPlayerName = PlayerName.RED_PLAYER_1;
+
+    //                iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+    //            }
+    //        }
+
+    //    }
+    //    else
+    //    {
+    //        // Condition when Player Coin is reached successfully in House....(Actual Number of required moves to get into the House)
+    //        if (playerTurn == "RED" && (redMovementBlocks.Count - redPlayerI_Steps) == selectDiceNumAnimation)
+    //        {
+    //            Vector3[] redPlayer_Path = new Vector3[selectDiceNumAnimation];
+
+    //            for (int i = 0; i < selectDiceNumAnimation; i++)
+    //            {
+    //                redPlayer_Path[i] = redMovementBlocks[redPlayerI_Steps + i].transform.position;
+    //            }
+
+    //            redPlayerI_Steps += selectDiceNumAnimation;
+
+    //            playerTurn = TagHolder.RED;
+
+    //            //redPlayerI_Steps = 0;
+
+    //            if (redPlayer_Path.Length > 1)
+    //            {
+    //                iTween.MoveTo(redPlayerI, iTween.Hash("path", redPlayer_Path, "speed", 125, "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+    //            }
+    //            else
+    //            {
+    //                iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+    //            }
+    //            totalRedInHouse += 1;
+    //            Debug.Log("Cool !!");
+    //            RedPlayerI_Button.enabled = false;
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("You need " + (redMovementBlocks.Count - redPlayerI_Steps).ToString() + " to enter into the house.");
+
+    //            if (redPlayerII_Steps + redPlayerIII_Steps + redPlayerIV_Steps == 0 && selectDiceNumAnimation != 6)
+    //            {
+    //                switch (MainMenuScript.howManyPlayers)
+    //                {
+    //                    case 2:
+    //                        playerTurn = "GREEN";
+    //                        break;
+
+    //                    case 3:
+    //                        playerTurn = "BLUE";
+    //                        break;
+
+    //                    case 4:
+    //                        playerTurn = "BLUE";
+    //                        break;
+    //                }
+    //                InitializeDice();
+    //            }
+    //        }
+    //    }
+    //}
+    #endregion
 
     void Start()
     {

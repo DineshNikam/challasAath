@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 29144808}
   m_Layer: 5
   m_Name: Spot  (16)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 64298306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: YellowPlayer3Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &64298309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +406,7 @@ GameObject:
   - component: {fileID: 91259414}
   m_Layer: 5
   m_Name: ' Spot  (3)'
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,7 +481,7 @@ GameObject:
   - component: {fileID: 107779419}
   m_Layer: 5
   m_Name: Spot  (18)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -811,7 +823,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 183143355}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: BluePlayer2Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &183143358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1069,7 @@ GameObject:
   - component: {fileID: 320866676}
   m_Layer: 5
   m_Name: Spot  (20)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1277,7 +1301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 342026591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: YellowPlayer1Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &342026594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,7 +1507,7 @@ GameObject:
   - component: {fileID: 381635931}
   m_Layer: 5
   m_Name: Spot  (24)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1773,7 +1809,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 446101894}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RedPlayer4Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &446101897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1892,12 +1940,29 @@ MonoBehaviour:
   yellowPlayerII: {fileID: 1276215373}
   yellowPlayerIII: {fileID: 64298302}
   yellowPlayerIV: {fileID: 1521374385}
+  redPlayerI_Steps: 0
+  redPlayerII_Steps: 0
+  redPlayerIII_Steps: 0
+  redPlayerIV_Steps: 0
+  greenPlayerI_Steps: 0
+  greenPlayerII_Steps: 0
+  greenPlayerIII_Steps: 0
+  greenPlayerIV_Steps: 0
+  bluePlayerI_Steps: 0
+  bluePlayerII_Steps: 0
+  bluePlayerIII_Steps: 0
+  bluePlayerIV_Steps: 0
+  yellowPlayerI_Steps: 0
+  yellowPlayerII_Steps: 0
+  yellowPlayerIII_Steps: 0
+  yellowPlayerIV_Steps: 0
   dice1_Roll_Animation: {fileID: 685826109}
   dice2_Roll_Animation: {fileID: 1518144017}
   dice3_Roll_Animation: {fileID: 1537201839}
   dice4_Roll_Animation: {fileID: 1614738108}
   dice8_Roll_Animation: {fileID: 526920820}
   redMovementBlocks:
+  - {fileID: 1361224250}
   - {fileID: 1918193117}
   - {fileID: 91259412}
   - {fileID: 476452797}
@@ -1923,6 +1988,7 @@ MonoBehaviour:
   - {fileID: 381635929}
   - {fileID: 1018702306}
   greenMovementBlocks:
+  - {fileID: 2138939264}
   - {fileID: 1298214815}
   - {fileID: 1373418230}
   - {fileID: 1473304629}
@@ -1930,7 +1996,7 @@ MonoBehaviour:
   - {fileID: 1059737913}
   - {fileID: 2045998519}
   - {fileID: 29144806}
-  - {fileID: 1335316298}
+  - {fileID: 1361224250}
   - {fileID: 1918193117}
   - {fileID: 91259412}
   - {fileID: 476452797}
@@ -1944,10 +2010,11 @@ MonoBehaviour:
   - {fileID: 381635929}
   - {fileID: 1435689670}
   - {fileID: 107779417}
-  - {fileID: 107779417}
+  - {fileID: 1226460585}
   - {fileID: 320866674}
   - {fileID: 850124352}
   yellowMovementBlocks:
+  - {fileID: 1335316298}
   - {fileID: 1059737913}
   - {fileID: 2045998519}
   - {fileID: 29144806}
@@ -1973,6 +2040,7 @@ MonoBehaviour:
   - {fileID: 107779417}
   - {fileID: 1920669104}
   blueMovementBlocks:
+  - {fileID: 1790266170}
   - {fileID: 1763997988}
   - {fileID: 1665970480}
   - {fileID: 771301872}
@@ -2019,6 +2087,7 @@ MonoBehaviour:
   - {fileID: 1276215380}
   - {fileID: 64298309}
   - {fileID: 1521374392}
+  shouldMakeEight: 1
 --- !u!4 &465988636
 Transform:
   m_ObjectHideFlags: 0
@@ -2046,7 +2115,7 @@ GameObject:
   - component: {fileID: 476452799}
   m_Layer: 5
   m_Name: '  Spot (4)'
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2200,7 +2269,7 @@ GameObject:
   - component: {fileID: 506926999}
   m_Layer: 5
   m_Name: Spot  (22)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2641,7 +2710,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 573048932}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GreenPlayer4Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &573048935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3457,7 +3538,7 @@ GameObject:
   - component: {fileID: 726800761}
   m_Layer: 5
   m_Name: Blue House
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3478,8 +3559,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46.000076, y: -0.0035648346}
-  m_SizeDelta: {x: 29.571, y: 59.307}
+  m_AnchoredPosition: {x: 1.724, y: -44.3}
+  m_SizeDelta: {x: 52.018, y: 29.771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726800761
 MonoBehaviour:
@@ -3532,7 +3613,7 @@ GameObject:
   - component: {fileID: 771301874}
   m_Layer: 5
   m_Name: Spot  (8)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3717,7 +3798,7 @@ GameObject:
   - component: {fileID: 850124354}
   m_Layer: 5
   m_Name: Green House
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3738,8 +3819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.5180206, y: -40.610004}
-  m_SizeDelta: {x: 55.393, y: 37.396}
+  m_AnchoredPosition: {x: 43.137, y: 3.7}
+  m_SizeDelta: {x: 44.76, y: 31.489}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850124354
 MonoBehaviour:
@@ -3949,7 +4030,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866607960}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GreenPlayer1Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866607963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4009,7 +4102,7 @@ GameObject:
   - component: {fileID: 894169795}
   m_Layer: 5
   m_Name: Spot  (21)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4241,7 +4334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 924549668}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GreenPlayer3Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &924549671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4569,7 +4674,7 @@ GameObject:
   - component: {fileID: 1018702308}
   m_Layer: 5
   m_Name: Red House
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4719,7 +4824,7 @@ GameObject:
   - component: {fileID: 1059737915}
   m_Layer: 5
   m_Name: Spot  (14)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4951,7 +5056,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1061427727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: BluePlayer1Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1061427730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5134,7 +5251,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1118183668}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: BluePlayer3Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1118183671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5332,7 +5461,7 @@ GameObject:
   - component: {fileID: 1226460587}
   m_Layer: 5
   m_Name: Spot  (19)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5727,7 +5856,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1276215377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: YellowPlayer2Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1276215380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5753,7 +5894,7 @@ GameObject:
   - component: {fileID: 1298214817}
   m_Layer: 5
   m_Name: Spot  (10)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5906,7 +6047,7 @@ GameObject:
   - component: {fileID: 1335316300}
   m_Layer: 5
   m_Name: star
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5981,7 +6122,7 @@ GameObject:
   - component: {fileID: 1361224252}
   m_Layer: 5
   m_Name: star
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6248,7 +6389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1363619687}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RedPlayer2Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1363619690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6274,7 +6427,7 @@ GameObject:
   - component: {fileID: 1373418232}
   m_Layer: 5
   m_Name: Spot  (11)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6486,7 +6639,7 @@ GameObject:
   - component: {fileID: 1435689672}
   m_Layer: 5
   m_Name: Spot  (17)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6561,7 +6714,7 @@ GameObject:
   - component: {fileID: 1445389843}
   m_Layer: 5
   m_Name: Spot  (23)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6636,7 +6789,7 @@ GameObject:
   - component: {fileID: 1473304631}
   m_Layer: 5
   m_Name: Spot  (12)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7042,7 +7195,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1521374389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: YellowPlayer4Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1521374392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7644,7 +7809,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1657841166}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: BluePlayer4Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1657841169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7670,7 +7847,7 @@ GameObject:
   - component: {fileID: 1665970482}
   m_Layer: 5
   m_Name: Spot  (7)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7932,7 +8109,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1755864670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GreenPlayer2Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1755864673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7958,7 +8147,7 @@ GameObject:
   - component: {fileID: 1763997990}
   m_Layer: 5
   m_Name: Spot   (6)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8068,7 +8257,7 @@ GameObject:
   - component: {fileID: 1790266172}
   m_Layer: 5
   m_Name: star
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8167,7 +8356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -477.01, y: 312.2}
+  m_AnchoredPosition: {x: 549, y: -345}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800937061
@@ -8782,7 +8971,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465988635}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RedPlayer1Mmovement
+        m_MethodName: RedPlayer1Movement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8817,7 +9006,7 @@ GameObject:
   - component: {fileID: 1918193119}
   m_Layer: 5
   m_Name: '  Spot (2)'
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8892,7 +9081,7 @@ GameObject:
   - component: {fileID: 1920669106}
   m_Layer: 5
   m_Name: Yellow House
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9250,7 +9439,7 @@ GameObject:
   - component: {fileID: 2045998521}
   m_Layer: 5
   m_Name: Spot  (15)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9482,7 +9671,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2106448674}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465988635}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RedPlayer3Movement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2106448677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9508,7 +9709,7 @@ GameObject:
   - component: {fileID: 2138939266}
   m_Layer: 5
   m_Name: star
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
