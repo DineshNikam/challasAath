@@ -79,6 +79,9 @@ public class GameManager : MonoBehaviour
     public List<BounceAnimation> animBluePlayer = new List<BounceAnimation>();
     public List<BounceAnimation> animYellowPlayer = new List<BounceAnimation>();
     public bool shouldMakeEight;
+
+
+    public List<GameObject> PlayersContainer = new List<GameObject>(4);
     #endregion
     #region Confirm Screeen
     public void yesMethod()
@@ -123,7 +126,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-
+    
 
     #region Utility Methods
 
@@ -161,6 +164,7 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayersAnimation(string str, bool I = false, bool II = false, bool III = false, bool IV = false)
     {
+        
         //Debug.Log("animationPlayers " + str + "  values:" + I + II + III + IV);
         switch (str)
         {
@@ -292,6 +296,11 @@ public class GameManager : MonoBehaviour
 
     public void SetFrame(bool Red = false, bool Green = false, bool Blue = false, bool Yellow = false)
     {
+        if (Red) PlayersContainer[0].transform.SetAsLastSibling();
+        if (Green) PlayersContainer[1].transform.SetAsLastSibling();
+        if (Blue) PlayersContainer[2].transform.SetAsLastSibling();
+        if (Yellow) PlayersContainer[3].transform.SetAsLastSibling();
+        
         frameRed.SetActive(Red);
         frameGreen.SetActive(Green);
         frameBlue.SetActive(Blue);
@@ -622,6 +631,81 @@ public class GameManager : MonoBehaviour
 
         DiceRollButton.interactable = true;
         SetAllAnimationFalse();
+
+        //======== Getting curruntPlayer VALUE=======
+        if (curruntPlayerName.Contains("Red Player"))
+        {
+            if (curruntPlayerName == PlayerName.RED_PLAYER_1)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = RedPlayerI_Script.redPlayerI_ColName;
+                
+            }
+            if (curruntPlayerName == PlayerName.RED_PLAYER_2)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = RedPlayerII_Script.redPlayerII_ColName;
+            }
+            if (curruntPlayerName ==  PlayerName.RED_PLAYER_3)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = RedPlayerIII_Script.redPlayerIII_ColName;
+            }
+            if (curruntPlayerName ==  PlayerName.RED_PLAYER_4)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = RedPlayerIV_Script.redPlayerIV_ColName;
+            }
+        }
+
+        if (curruntPlayerName.Contains("Blue Player"))
+        {
+            if (curruntPlayerName == PlayerName.BLUE_PLAYER_1)
+                curruntPlayer = BluePlayerI_Script.bluePlayerI_ColName;
+            if (curruntPlayerName == PlayerName.BLUE_PLAYER_2)
+                curruntPlayer = BluePlayerII_Script.bluePlayerII_ColName;
+            if (curruntPlayerName == PlayerName.BLUE_PLAYER_2)
+                curruntPlayer = BluePlayerIII_Script.bluePlayerIII_ColName;
+            if (curruntPlayerName == PlayerName.BLUE_PLAYER_4)
+                curruntPlayer = BluePlayerIV_Script.bluePlayerIV_ColName;
+        }
+
+        if (curruntPlayerName.Contains("Green Player"))
+        {
+            if (curruntPlayerName == PlayerName.GREEN_PLAYER_1)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = GreenPlayerI_Script.greenPlayerI_ColName;
+            }
+            if (curruntPlayerName == PlayerName.GREEN_PLAYER_2)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = GreenPlayerII_Script.greenPlayerII_ColName;
+            }
+            if (curruntPlayerName == PlayerName.GREEN_PLAYER_3)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = GreenPlayerIII_Script.greenPlayerIII_ColName;
+            }
+            if (curruntPlayerName == PlayerName.GREEN_PLAYER_4)
+            {
+                Debug.Log("curruntPlayerName = " + curruntPlayerName);
+                curruntPlayer = GreenPlayerIV_Script.greenPlayerIV_ColName;
+            }
+        }
+
+        if (curruntPlayerName.Contains("Yellow Player"))
+        {
+            if (curruntPlayerName == PlayerName.YELLOW_PLAYER_1)
+                curruntPlayer = YellowPlayerI_Script.yellowPlayerI_ColName;
+            if (curruntPlayerName == PlayerName.YELLOW_PLAYER_2)
+                curruntPlayer = YellowPlayerII_Script.yellowPlayerII_ColName;
+            if (curruntPlayerName == PlayerName.YELLOW_PLAYER_3)
+                curruntPlayer = YellowPlayerIII_Script.yellowPlayerIII_ColName;
+            if (curruntPlayerName == PlayerName.YELLOW_PLAYER_4)
+                curruntPlayer = YellowPlayerIV_Script.yellowPlayerIV_ColName;
+        }
+
 
         switch (MainMenuScript.howManyPlayers)
         {

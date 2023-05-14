@@ -7,6 +7,15 @@ public class TagHolder
     public const string YELLOW = "YELLOW";
     public const string BLUE = "BLUE";
     public const string NONE = "none";
+
+
+    public const string BLOCKS = "blocks";
+    public const string RED_HOUSE = "Red House";
+    public const string GREEN_HOUSE = "Green House";
+    public const string BLUE_HOUSE = "Blue House";
+    public const string YELLOW_HOUSE = "Yellow House";
+
+
 }
 
 public class Scene

@@ -123,6 +123,40 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12662371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12662372}
+  m_Layer: 0
+  m_Name: Blue Players
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &12662372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12662371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1061427724}
+  - {fileID: 183143352}
+  - {fileID: 1118183665}
+  - {fileID: 1657841163}
+  m_Father: {fileID: 1623610469}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &29144806
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,11 +170,11 @@ GameObject:
   - component: {fileID: 29144808}
   m_Layer: 5
   m_Name: Spot  (16)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &29144807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -173,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -213,6 +247,7 @@ GameObject:
   - component: {fileID: 64298305}
   - component: {fileID: 64298304}
   - component: {fileID: 64298309}
+  - component: {fileID: 64298310}
   m_Layer: 5
   m_Name: Yellow Player (3)
   m_TagString: Untagged
@@ -232,8 +267,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 374876567}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 14
+  m_Father: {fileID: 2044632525}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -393,6 +428,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &64298310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64298302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3f1aae5c23e4a4eb408b79d57afc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &91259412
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,11 +453,11 @@ GameObject:
   - component: {fileID: 91259414}
   m_Layer: 5
   m_Name: ' Spot  (3)'
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &91259413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -443,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -481,11 +528,11 @@ GameObject:
   - component: {fileID: 107779419}
   m_Layer: 5
   m_Name: Spot  (18)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &107779418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -518,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -668,6 +715,7 @@ GameObject:
   - component: {fileID: 183143354}
   - component: {fileID: 183143353}
   - component: {fileID: 183143358}
+  - component: {fileID: 183143359}
   m_Layer: 5
   m_Name: Blue Player (2)
   m_TagString: Untagged
@@ -687,7 +735,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 417099031}
-  m_Father: {fileID: 1623610469}
+  m_Father: {fileID: 12662372}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -846,6 +894,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &183143359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183143351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1027dab86b593a94fb5230688ef7f29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &190790578
@@ -1069,11 +1129,11 @@ GameObject:
   - component: {fileID: 320866676}
   m_Layer: 5
   m_Name: Spot  (20)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &320866675
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1106,7 +1166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1146,6 +1206,7 @@ GameObject:
   - component: {fileID: 342026590}
   - component: {fileID: 342026589}
   - component: {fileID: 342026594}
+  - component: {fileID: 342026595}
   m_Layer: 5
   m_Name: Yellow Player (1)
   m_TagString: Untagged
@@ -1165,8 +1226,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 539270851}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 12
+  m_Father: {fileID: 2044632525}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1324,6 +1385,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &342026595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342026587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccbdec07a7afd8348953672ad7b22c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &374876566
@@ -1507,11 +1580,11 @@ GameObject:
   - component: {fileID: 381635931}
   m_Layer: 5
   m_Name: Spot  (24)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &381635930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1544,7 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1654,6 +1727,7 @@ GameObject:
   - component: {fileID: 446101893}
   - component: {fileID: 446101892}
   - component: {fileID: 446101897}
+  - component: {fileID: 446101898}
   m_Layer: 5
   m_Name: Red Player (4)
   m_TagString: Untagged
@@ -1673,8 +1747,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 147455496}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 7
+  m_Father: {fileID: 818965961}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1832,6 +1906,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &446101898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446101890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01626594b05f474baedcce1b6ae8679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &465988634
@@ -2088,6 +2174,11 @@ MonoBehaviour:
   - {fileID: 64298309}
   - {fileID: 1521374392}
   shouldMakeEight: 1
+  PlayersContainer:
+  - {fileID: 818965960}
+  - {fileID: 1435141534}
+  - {fileID: 12662371}
+  - {fileID: 2044632524}
 --- !u!4 &465988636
 Transform:
   m_ObjectHideFlags: 0
@@ -2115,11 +2206,11 @@ GameObject:
   - component: {fileID: 476452799}
   m_Layer: 5
   m_Name: '  Spot (4)'
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &476452798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2152,7 +2243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2269,11 +2360,11 @@ GameObject:
   - component: {fileID: 506926999}
   m_Layer: 5
   m_Name: Spot  (22)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &506926998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2306,7 +2397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2555,6 +2646,7 @@ GameObject:
   - component: {fileID: 573048931}
   - component: {fileID: 573048930}
   - component: {fileID: 573048935}
+  - component: {fileID: 573048936}
   m_Layer: 5
   m_Name: Green Player (4)
   m_TagString: Untagged
@@ -2574,8 +2666,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1164328792}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 11
+  m_Father: {fileID: 1435141535}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2733,6 +2825,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &573048936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573048928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208bf499582f8ea40ad25fcbd20761cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &574196126
@@ -3538,11 +3642,11 @@ GameObject:
   - component: {fileID: 726800761}
   m_Layer: 5
   m_Name: Blue House
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &726800760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3575,7 +3679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3613,11 +3717,11 @@ GameObject:
   - component: {fileID: 771301874}
   m_Layer: 5
   m_Name: Spot  (8)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &771301873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3650,7 +3754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3785,6 +3889,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781779199}
   m_CullTransparentMesh: 1
+--- !u!1 &818965960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818965961}
+  m_Layer: 0
+  m_Name: Red Players
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818965961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818965960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1917877546}
+  - {fileID: 1363619684}
+  - {fileID: 2106448671}
+  - {fileID: 446101891}
+  m_Father: {fileID: 1623610469}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850124352
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,11 +3936,11 @@ GameObject:
   - component: {fileID: 850124354}
   m_Layer: 5
   m_Name: Green House
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &850124353
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3835,7 +3973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3875,6 +4013,7 @@ GameObject:
   - component: {fileID: 866607959}
   - component: {fileID: 866607958}
   - component: {fileID: 866607963}
+  - component: {fileID: 866607964}
   m_Layer: 5
   m_Name: Green Player (1)
   m_TagString: Untagged
@@ -3894,8 +4033,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1011984888}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 8
+  m_Father: {fileID: 1435141535}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4055,6 +4194,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &866607964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866607956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba97211ac5b23f4fab94018e761b42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &879530447
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,11 +4253,11 @@ GameObject:
   - component: {fileID: 894169795}
   m_Layer: 5
   m_Name: Spot  (21)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &894169794
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4139,7 +4290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4179,6 +4330,7 @@ GameObject:
   - component: {fileID: 924549667}
   - component: {fileID: 924549666}
   - component: {fileID: 924549671}
+  - component: {fileID: 924549672}
   m_Layer: 5
   m_Name: Green Player (3)
   m_TagString: Untagged
@@ -4198,8 +4350,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1858075748}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 10
+  m_Father: {fileID: 1435141535}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4357,6 +4509,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &924549672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924549664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0599d1dc6284b3d4aa92e19698ffbe1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &958311777
@@ -4674,11 +4838,11 @@ GameObject:
   - component: {fileID: 1018702308}
   m_Layer: 5
   m_Name: Red House
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1018702307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4711,7 +4875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4824,11 +4988,11 @@ GameObject:
   - component: {fileID: 1059737915}
   m_Layer: 5
   m_Name: Spot  (14)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1059737914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4861,7 +5025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4901,6 +5065,7 @@ GameObject:
   - component: {fileID: 1061427726}
   - component: {fileID: 1061427725}
   - component: {fileID: 1061427730}
+  - component: {fileID: 1061427731}
   m_Layer: 5
   m_Name: Blue Player (1)
   m_TagString: Untagged
@@ -4920,7 +5085,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 775986343}
-  m_Father: {fileID: 1623610469}
+  m_Father: {fileID: 12662372}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5081,6 +5246,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1061427731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061427723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f0bd561eb4da9479b7e0bd1fc57e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1118183664
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,6 +5273,7 @@ GameObject:
   - component: {fileID: 1118183667}
   - component: {fileID: 1118183666}
   - component: {fileID: 1118183671}
+  - component: {fileID: 1118183672}
   m_Layer: 5
   m_Name: Blue Player (3)
   m_TagString: Untagged
@@ -5115,7 +5293,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 438925561}
-  m_Father: {fileID: 1623610469}
+  m_Father: {fileID: 12662372}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5274,6 +5452,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1118183672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118183664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb836402e92b21c46b8b73cf9f7ae20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1144831756
@@ -5461,11 +5651,11 @@ GameObject:
   - component: {fileID: 1226460587}
   m_Layer: 5
   m_Name: Spot  (19)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1226460586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5498,7 +5688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5701,6 +5891,7 @@ GameObject:
   - component: {fileID: 1276215376}
   - component: {fileID: 1276215375}
   - component: {fileID: 1276215380}
+  - component: {fileID: 1276215381}
   m_Layer: 5
   m_Name: Yellow Player (2)
   m_TagString: Untagged
@@ -5720,8 +5911,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 673227022}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 13
+  m_Father: {fileID: 2044632525}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5881,6 +6072,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1276215381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276215373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8776ff404c6c4890708e802e72bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1298214815
 GameObject:
   m_ObjectHideFlags: 0
@@ -5894,11 +6097,11 @@ GameObject:
   - component: {fileID: 1298214817}
   m_Layer: 5
   m_Name: Spot  (10)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1298214816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5931,7 +6134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6047,11 +6250,11 @@ GameObject:
   - component: {fileID: 1335316300}
   m_Layer: 5
   m_Name: star
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1335316299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6084,7 +6287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6122,11 +6325,11 @@ GameObject:
   - component: {fileID: 1361224252}
   m_Layer: 5
   m_Name: star
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1361224251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6159,7 +6362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6234,6 +6437,7 @@ GameObject:
   - component: {fileID: 1363619686}
   - component: {fileID: 1363619685}
   - component: {fileID: 1363619690}
+  - component: {fileID: 1363619691}
   m_Layer: 5
   m_Name: Red Player (2)
   m_TagString: Untagged
@@ -6253,8 +6457,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 618003511}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 5
+  m_Father: {fileID: 818965961}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6414,6 +6618,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1363619691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363619683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698f6d54f59677b4b94e416b15077953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1373418230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,11 +6643,11 @@ GameObject:
   - component: {fileID: 1373418232}
   m_Layer: 5
   m_Name: Spot  (11)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1373418231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6464,7 +6680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6626,6 +6842,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391176662}
   m_CullTransparentMesh: 1
+--- !u!1 &1435141534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1435141535}
+  m_Layer: 0
+  m_Name: 'Green Players '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1435141535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435141534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 866607957}
+  - {fileID: 1755864667}
+  - {fileID: 924549665}
+  - {fileID: 573048929}
+  m_Father: {fileID: 1623610469}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435689670
 GameObject:
   m_ObjectHideFlags: 0
@@ -6639,11 +6889,11 @@ GameObject:
   - component: {fileID: 1435689672}
   m_Layer: 5
   m_Name: Spot  (17)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1435689671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6676,7 +6926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6714,11 +6964,11 @@ GameObject:
   - component: {fileID: 1445389843}
   m_Layer: 5
   m_Name: Spot  (23)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1445389842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6751,7 +7001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6789,11 +7039,11 @@ GameObject:
   - component: {fileID: 1473304631}
   m_Layer: 5
   m_Name: Spot  (12)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1473304630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6826,7 +7076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7040,6 +7290,7 @@ GameObject:
   - component: {fileID: 1521374388}
   - component: {fileID: 1521374387}
   - component: {fileID: 1521374392}
+  - component: {fileID: 1521374393}
   m_Layer: 5
   m_Name: Yellow Player (4)
   m_TagString: Untagged
@@ -7059,8 +7310,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1782299797}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 15
+  m_Father: {fileID: 2044632525}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7218,6 +7469,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1521374393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521374385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a819785e7f7a8d4fb1b96994d48bf55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1537201839
@@ -7620,22 +7883,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1061427724}
-  - {fileID: 183143352}
-  - {fileID: 1118183665}
-  - {fileID: 1657841163}
-  - {fileID: 1917877546}
-  - {fileID: 1363619684}
-  - {fileID: 2106448671}
-  - {fileID: 446101891}
-  - {fileID: 866607957}
-  - {fileID: 1755864667}
-  - {fileID: 924549665}
-  - {fileID: 573048929}
-  - {fileID: 342026588}
-  - {fileID: 1276215374}
-  - {fileID: 64298303}
-  - {fileID: 1521374386}
+  - {fileID: 818965961}
+  - {fileID: 12662372}
+  - {fileID: 1435141535}
+  - {fileID: 2044632525}
   m_Father: {fileID: 1547624273}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7654,6 +7905,7 @@ GameObject:
   - component: {fileID: 1657841165}
   - component: {fileID: 1657841164}
   - component: {fileID: 1657841169}
+  - component: {fileID: 1657841170}
   m_Layer: 5
   m_Name: Blue Player (4)
   m_TagString: Untagged
@@ -7673,7 +7925,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1363064441}
-  m_Father: {fileID: 1623610469}
+  m_Father: {fileID: 12662372}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7834,6 +8086,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1657841170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657841162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888e17d06f86b16459bb080ce6ebfa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1665970480
 GameObject:
   m_ObjectHideFlags: 0
@@ -7847,11 +8111,11 @@ GameObject:
   - component: {fileID: 1665970482}
   m_Layer: 5
   m_Name: Spot  (7)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1665970481
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7884,7 +8148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7954,6 +8218,7 @@ GameObject:
   - component: {fileID: 1755864669}
   - component: {fileID: 1755864668}
   - component: {fileID: 1755864673}
+  - component: {fileID: 1755864674}
   m_Layer: 5
   m_Name: Green Player (2)
   m_TagString: Untagged
@@ -7973,8 +8238,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1853903738}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 9
+  m_Father: {fileID: 1435141535}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8134,6 +8399,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1755864674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755864666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002845e0ce678624dbb69c2f0c920820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1763997988
 GameObject:
   m_ObjectHideFlags: 0
@@ -8147,11 +8424,11 @@ GameObject:
   - component: {fileID: 1763997990}
   m_Layer: 5
   m_Name: Spot   (6)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1763997989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8184,7 +8461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8257,11 +8534,11 @@ GameObject:
   - component: {fileID: 1790266172}
   m_Layer: 5
   m_Name: star
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1790266171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8294,7 +8571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8813,6 +9090,7 @@ GameObject:
   - component: {fileID: 1917877548}
   - component: {fileID: 1917877547}
   - component: {fileID: 1917877552}
+  - component: {fileID: 1917877553}
   m_Layer: 5
   m_Name: Red Player (1)
   m_TagString: Untagged
@@ -8832,8 +9110,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1829367937}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 4
+  m_Father: {fileID: 818965961}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8874,7 +9152,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 16.944153}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8885,7 +9163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10, y: 43.888306}
   m_EdgeRadius: 0
 --- !u!114 &1917877549
 MonoBehaviour:
@@ -8993,6 +9271,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1917877553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917877545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1da5e9dd55390149b11f512b18f1d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918193117
 GameObject:
   m_ObjectHideFlags: 0
@@ -9006,11 +9296,11 @@ GameObject:
   - component: {fileID: 1918193119}
   m_Layer: 5
   m_Name: '  Spot (2)'
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1918193118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9043,7 +9333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9081,11 +9371,11 @@ GameObject:
   - component: {fileID: 1920669106}
   m_Layer: 5
   m_Name: Yellow House
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1920669105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9118,7 +9408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9426,6 +9716,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992286283}
   m_CullTransparentMesh: 1
+--- !u!1 &2044632524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044632525}
+  m_Layer: 0
+  m_Name: 'Yellow Players '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044632525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044632524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 342026588}
+  - {fileID: 1276215374}
+  - {fileID: 64298303}
+  - {fileID: 1521374386}
+  m_Father: {fileID: 1623610469}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2045998519
 GameObject:
   m_ObjectHideFlags: 0
@@ -9439,11 +9763,11 @@ GameObject:
   - component: {fileID: 2045998521}
   m_Layer: 5
   m_Name: Spot  (15)
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2045998520
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9476,7 +9800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9516,6 +9840,7 @@ GameObject:
   - component: {fileID: 2106448673}
   - component: {fileID: 2106448672}
   - component: {fileID: 2106448677}
+  - component: {fileID: 2106448678}
   m_Layer: 5
   m_Name: Red Player (3)
   m_TagString: Untagged
@@ -9535,8 +9860,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1955683969}
-  m_Father: {fileID: 1623610469}
-  m_RootOrder: 6
+  m_Father: {fileID: 818965961}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9696,6 +10021,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8151c848e0e478bca540fb49dbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2106448678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106448670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c98d7b239321e4ca78f841cf0b796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138939264
 GameObject:
   m_ObjectHideFlags: 0
@@ -9709,11 +10046,11 @@ GameObject:
   - component: {fileID: 2138939266}
   m_Layer: 5
   m_Name: star
-  m_TagString: Block
+  m_TagString: blocks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2138939265
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9746,7 +10083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.7372549}
+  m_Color: {r: 0.18024208, g: 0.7830189, b: 0.6495398, a: 0.21568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
