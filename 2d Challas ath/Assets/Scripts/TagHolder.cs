@@ -10,10 +10,16 @@ public class TagHolder
 
 
     public const string BLOCKS = "blocks";
+    public const string STAR = "star";
     public const string RED_HOUSE = "Red House";
     public const string GREEN_HOUSE = "Green House";
     public const string BLUE_HOUSE = "Blue House";
     public const string YELLOW_HOUSE = "Yellow House";
+
+    public const string RED_PLAYER = "Red Player";
+    public const string BLUE_PLAYER = "Blue Player";
+    public const string GREEN_PLAYER = "Green Player";
+    public const string YELLOW_PLAYER = "Yellow Player";
 
 
 }
@@ -22,15 +28,15 @@ public class Scene
 {
     public const string MAIN_MENU = "Main Menu";
     public const string LUDO = "Ludo";
-  
+
 
 }
 
 public class PlayerName
 {
-    public const string RED_PLAYER_1 = "Red Player (1)"; 
-    public const string RED_PLAYER_2 = "Red Player (2)"; 
-    public const string RED_PLAYER_3 = "Red Player (3)"; 
+    public const string RED_PLAYER_1 = "Red Player (1)";
+    public const string RED_PLAYER_2 = "Red Player (2)";
+    public const string RED_PLAYER_3 = "Red Player (3)";
     public const string RED_PLAYER_4 = "Red Player (4)";
 
     public const string BLUE_PLAYER_1 = "Blue Player (1)";

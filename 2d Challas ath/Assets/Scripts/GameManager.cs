@@ -625,15 +625,19 @@ public class GameManager : MonoBehaviour
         }
     } // activates player border button and animation
     #endregion
-
+    /* Tests
+     * Blue cant kill-- solved -- test remain
+     * on one players win no win screen and also include in next round
+     * if all players cant be moved when dice eight, there is no second chance
+    */
     private void InitializeDice()
     {
 
         DiceRollButton.interactable = true;
         SetAllAnimationFalse();
 
-        //======== Getting curruntPlayer VALUE=======
-        if (curruntPlayerName.Contains("Red Player"))
+        #region ======== Getting curruntPlayer VALUE=======
+        if (curruntPlayerName.Contains(TagHolder.RED_PLAYER))
         {
             if (curruntPlayerName == PlayerName.RED_PLAYER_1)
             {
@@ -658,7 +662,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (curruntPlayerName.Contains("Blue Player"))
+        if (curruntPlayerName.Contains(TagHolder.BLUE_PLAYER))
         {
             if (curruntPlayerName == PlayerName.BLUE_PLAYER_1)
                 curruntPlayer = BluePlayerI_Script.bluePlayerI_ColName;
@@ -670,7 +674,7 @@ public class GameManager : MonoBehaviour
                 curruntPlayer = BluePlayerIV_Script.bluePlayerIV_ColName;
         }
 
-        if (curruntPlayerName.Contains("Green Player"))
+        if (curruntPlayerName.Contains(TagHolder.GREEN_PLAYER))
         {
             if (curruntPlayerName == PlayerName.GREEN_PLAYER_1)
             {
@@ -694,7 +698,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (curruntPlayerName.Contains("Yellow Player"))
+        if (curruntPlayerName.Contains(TagHolder.YELLOW_PLAYER))
         {
             if (curruntPlayerName == PlayerName.YELLOW_PLAYER_1)
                 curruntPlayer = YellowPlayerI_Script.yellowPlayerI_ColName;
@@ -706,17 +710,720 @@ public class GameManager : MonoBehaviour
                 curruntPlayer = YellowPlayerIV_Script.yellowPlayerIV_ColName;
         }
 
+        #endregion
 
-        switch (MainMenuScript.howManyPlayers)
+        #region //================== Player vs Opponent=========================================================
+        if (curruntPlayerName != TagHolder.NONE)
+        {
+            switch (MainMenuScript.howManyPlayers)
+            {
+                case 2:
+                    if (curruntPlayerName.Contains(TagHolder.RED_PLAYER))
+                    {   
+                        // Checking if player can eliminate other player and they are on same block
+                        // (blockName [spot 1 -24 ]== greenPlayer1 Spot name) and  (curruntSpot  not a star  and greenplayer1 spot not a star  
+                        if (curruntPlayer == GreenPlayerI_Script.greenPlayerI_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerI_Script.greenPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerI.transform.position = greenPlayerI_Pos;
+                            GreenPlayerI_Script.greenPlayerI_ColName = TagHolder.NONE;
+                            greenPlayerI_Steps = 0;
+                            playerTurn =TagHolder.RED;
+                        }
+                        if (curruntPlayer == GreenPlayerII_Script.greenPlayerII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerII_Script.greenPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerII.transform.position = greenPlayerII_Pos;
+                            GreenPlayerII_Script.greenPlayerII_ColName = TagHolder.NONE;
+                            greenPlayerII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == GreenPlayerIII_Script.greenPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIII_Script.greenPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIII.transform.position = greenPlayerIII_Pos;
+                            GreenPlayerIII_Script.greenPlayerIII_ColName = TagHolder.NONE;
+                            greenPlayerIII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == GreenPlayerIV_Script.greenPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIV_Script.greenPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIV.transform.position = greenPlayerIV_Pos;
+                            GreenPlayerIV_Script.greenPlayerIV_ColName = TagHolder.NONE;
+                            greenPlayerIV_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                    }
+                    if (curruntPlayerName.Contains(TagHolder.GREEN_PLAYER))
+                    {
+                        if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerI.transform.position = redPlayerI_Pos;
+                            RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
+                            redPlayerI_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerII.transform.position = redPlayerII_Pos;
+                            RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
+                            redPlayerII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIII.transform.position = redPlayerIII_Pos;
+                            RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
+                            redPlayerIII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIV.transform.position = redPlayerIV_Pos;
+                            RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
+                            redPlayerIV_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                    }
+                    break;
+
+                case 3:
+                    if (curruntPlayerName.Contains(TagHolder.RED_PLAYER))
+                    {
+                        if (curruntPlayer == YellowPlayerI_Script.yellowPlayerI_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerI_Script.yellowPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerI.transform.position = yellowPlayerI_Pos;
+                            YellowPlayerI_Script.yellowPlayerI_ColName = TagHolder.NONE;
+                            yellowPlayerI_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == YellowPlayerII_Script.yellowPlayerII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerII_Script.yellowPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerII.transform.position = yellowPlayerII_Pos;
+                            YellowPlayerII_Script.yellowPlayerII_ColName = TagHolder.NONE;
+                            yellowPlayerII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == YellowPlayerIII_Script.yellowPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIII_Script.yellowPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIII.transform.position = yellowPlayerIII_Pos;
+                            YellowPlayerIII_Script.yellowPlayerIII_ColName = TagHolder.NONE;
+                            yellowPlayerIII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == YellowPlayerIV_Script.yellowPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIV_Script.yellowPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIV.transform.position = yellowPlayerIV_Pos;
+                            YellowPlayerIV_Script.yellowPlayerIV_ColName = TagHolder.NONE;
+                            yellowPlayerIV_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+
+                        if (curruntPlayer == BluePlayerI_Script.bluePlayerI_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerI_Script.bluePlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerI.transform.position = bluePlayerI_Pos;
+                            BluePlayerI_Script.bluePlayerI_ColName = TagHolder.NONE;
+                            bluePlayerI_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == BluePlayerII_Script.bluePlayerII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerII_Script.bluePlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerII.transform.position = bluePlayerII_Pos;
+                            BluePlayerII_Script.bluePlayerII_ColName = TagHolder.NONE;
+                            bluePlayerII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == BluePlayerIII_Script.bluePlayerIII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIII_Script.bluePlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIII.transform.position = bluePlayerIII_Pos;
+                            BluePlayerIII_Script.bluePlayerIII_ColName = TagHolder.NONE;
+                            bluePlayerIII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == BluePlayerIV_Script.bluePlayerIV_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIV_Script.bluePlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIV.transform.position = bluePlayerIV_Pos;
+                            BluePlayerIV_Script.bluePlayerIV_ColName = TagHolder.NONE;
+                            bluePlayerIV_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                    }
+
+                    if (curruntPlayerName.Contains(TagHolder.YELLOW_PLAYER))
+                    {
+                        if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerI.transform.position = redPlayerI_Pos;
+                            RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
+                            redPlayerI_Steps = 0;
+                            playerTurn = TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerII.transform.position = redPlayerII_Pos;
+                            RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
+                            redPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIII.transform.position = redPlayerIII_Pos;
+                            RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
+                            redPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIV.transform.position = redPlayerIV_Pos;
+                            RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
+                            redPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+
+                        if (curruntPlayer == BluePlayerI_Script.bluePlayerI_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerI_Script.bluePlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerI.transform.position = bluePlayerI_Pos;
+                            BluePlayerI_Script.bluePlayerI_ColName = TagHolder.NONE;
+                            bluePlayerI_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == BluePlayerII_Script.bluePlayerII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerII_Script.bluePlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerII.transform.position = bluePlayerII_Pos;
+                            BluePlayerII_Script.bluePlayerII_ColName = TagHolder.NONE;
+                            bluePlayerII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == BluePlayerIII_Script.bluePlayerIII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIII_Script.bluePlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIII.transform.position = bluePlayerIII_Pos;
+                            BluePlayerIII_Script.bluePlayerIII_ColName = TagHolder.NONE;
+                            bluePlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == BluePlayerIV_Script.bluePlayerIV_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIV_Script.bluePlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIV.transform.position = bluePlayerIV_Pos;
+                            BluePlayerIV_Script.bluePlayerIV_ColName = TagHolder.NONE;
+                            bluePlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                    }
+
+                    if (curruntPlayerName.Contains(TagHolder.BLUE_PLAYER))
+                    {
+                        if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerI.transform.position = redPlayerI_Pos;
+                            RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
+                            redPlayerI_Steps = 0;
+                            playerTurn = TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerII.transform.position = redPlayerII_Pos;
+                            RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
+                            redPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIII.transform.position = redPlayerIII_Pos;
+                            RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
+                            redPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIV.transform.position = redPlayerIV_Pos;
+                            RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
+                            redPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+
+                        if (curruntPlayer == YellowPlayerI_Script.yellowPlayerI_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerI_Script.yellowPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerI.transform.position = yellowPlayerI_Pos;
+                            YellowPlayerI_Script.yellowPlayerI_ColName = TagHolder.NONE;
+                            yellowPlayerI_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == YellowPlayerII_Script.yellowPlayerII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerII_Script.yellowPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerII.transform.position = yellowPlayerII_Pos;
+                            YellowPlayerII_Script.yellowPlayerII_ColName = TagHolder.NONE;
+                            yellowPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == YellowPlayerIII_Script.yellowPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIII_Script.yellowPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIII.transform.position = yellowPlayerIII_Pos;
+                            YellowPlayerIII_Script.yellowPlayerIII_ColName = TagHolder.NONE;
+                            yellowPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == YellowPlayerIV_Script.yellowPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIV_Script.yellowPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIV.transform.position = yellowPlayerIV_Pos;
+                            YellowPlayerIV_Script.yellowPlayerIV_ColName = TagHolder.NONE;
+                            yellowPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                    }
+                    break;
+
+                case 4:
+                    if (curruntPlayerName.Contains(TagHolder.RED_PLAYER))
+                    {
+                        if (curruntPlayer == GreenPlayerI_Script.greenPlayerI_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerI_Script.greenPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerI.transform.position = greenPlayerI_Pos;
+                            GreenPlayerI_Script.greenPlayerI_ColName = TagHolder.NONE;
+                            greenPlayerI_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == GreenPlayerII_Script.greenPlayerII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerII_Script.greenPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerII.transform.position = greenPlayerII_Pos;
+                            GreenPlayerII_Script.greenPlayerII_ColName = TagHolder.NONE;
+                            greenPlayerII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == GreenPlayerIII_Script.greenPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIII_Script.greenPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIII.transform.position = greenPlayerIII_Pos;
+                            GreenPlayerIII_Script.greenPlayerIII_ColName = TagHolder.NONE;
+                            greenPlayerIII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == GreenPlayerIV_Script.greenPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIV_Script.greenPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIV.transform.position = greenPlayerIV_Pos;
+                            GreenPlayerIV_Script.greenPlayerIV_ColName = TagHolder.NONE;
+                            greenPlayerIV_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+
+                        if (curruntPlayer == BluePlayerI_Script.bluePlayerI_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerI_Script.bluePlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerI.transform.position = bluePlayerI_Pos;
+                            BluePlayerI_Script.bluePlayerI_ColName = TagHolder.NONE;
+                            bluePlayerI_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == BluePlayerII_Script.bluePlayerII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerII_Script.bluePlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerII.transform.position = bluePlayerII_Pos;
+                            BluePlayerII_Script.bluePlayerII_ColName = TagHolder.NONE;
+                            bluePlayerII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == BluePlayerIII_Script.bluePlayerIII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIII_Script.bluePlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIII.transform.position = bluePlayerIII_Pos;
+                            BluePlayerIII_Script.bluePlayerIII_ColName = TagHolder.NONE;
+                            bluePlayerIII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == BluePlayerIV_Script.bluePlayerIV_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIV_Script.bluePlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIV.transform.position = bluePlayerIV_Pos;
+                            BluePlayerIV_Script.bluePlayerIV_ColName = TagHolder.NONE;
+                            bluePlayerIV_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+
+                        if (curruntPlayer == YellowPlayerI_Script.yellowPlayerI_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerI_Script.yellowPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerI.transform.position = yellowPlayerI_Pos;
+                            YellowPlayerI_Script.yellowPlayerI_ColName = TagHolder.NONE;
+                            yellowPlayerI_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == YellowPlayerII_Script.yellowPlayerII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerII_Script.yellowPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerII.transform.position = yellowPlayerII_Pos;
+                            YellowPlayerII_Script.yellowPlayerII_ColName = TagHolder.NONE;
+                            yellowPlayerII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == YellowPlayerIII_Script.yellowPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIII_Script.yellowPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIII.transform.position = yellowPlayerIII_Pos;
+                            YellowPlayerIII_Script.yellowPlayerIII_ColName = TagHolder.NONE;
+                            yellowPlayerIII_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                        if (curruntPlayer == YellowPlayerIV_Script.yellowPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIV_Script.yellowPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIV.transform.position = yellowPlayerIV_Pos;
+                            YellowPlayerIV_Script.yellowPlayerIV_ColName = TagHolder.NONE;
+                            yellowPlayerIV_Steps = 0;
+                            playerTurn = TagHolder.RED;
+                        }
+                    }
+
+                    if (curruntPlayerName.Contains(TagHolder.GREEN_PLAYER))
+                    {
+                        if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerI.transform.position = redPlayerI_Pos;
+                            RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
+                            redPlayerI_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerII.transform.position = redPlayerII_Pos;
+                            RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
+                            redPlayerII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIII.transform.position = redPlayerIII_Pos;
+                            RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
+                            redPlayerIII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIV.transform.position = redPlayerIV_Pos;
+                            RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
+                            redPlayerIV_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+
+                        if (curruntPlayer == BluePlayerI_Script.bluePlayerI_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerI_Script.bluePlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerI.transform.position = bluePlayerI_Pos;
+                            BluePlayerI_Script.bluePlayerI_ColName = TagHolder.NONE;
+                            bluePlayerI_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == BluePlayerII_Script.bluePlayerII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerII_Script.bluePlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerII.transform.position = bluePlayerII_Pos;
+                            BluePlayerII_Script.bluePlayerII_ColName = TagHolder.NONE;
+                            bluePlayerII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == BluePlayerIII_Script.bluePlayerIII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIII_Script.bluePlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIII.transform.position = bluePlayerIII_Pos;
+                            BluePlayerIII_Script.bluePlayerIII_ColName = TagHolder.NONE;
+                            bluePlayerIII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == BluePlayerIV_Script.bluePlayerIV_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIV_Script.bluePlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIV.transform.position = bluePlayerIV_Pos;
+                            BluePlayerIV_Script.bluePlayerIV_ColName = TagHolder.NONE;
+                            bluePlayerIV_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+
+                        if (curruntPlayer == YellowPlayerI_Script.yellowPlayerI_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerI_Script.yellowPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerI.transform.position = yellowPlayerI_Pos;
+                            YellowPlayerI_Script.yellowPlayerI_ColName = TagHolder.NONE;
+                            yellowPlayerI_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == YellowPlayerII_Script.yellowPlayerII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerII_Script.yellowPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerII.transform.position = yellowPlayerII_Pos;
+                            YellowPlayerII_Script.yellowPlayerII_ColName = TagHolder.NONE;
+                            yellowPlayerII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == YellowPlayerIII_Script.yellowPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIII_Script.yellowPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIII.transform.position = yellowPlayerIII_Pos;
+                            YellowPlayerIII_Script.yellowPlayerIII_ColName = TagHolder.NONE;
+                            yellowPlayerIII_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                        if (curruntPlayer == YellowPlayerIV_Script.yellowPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIV_Script.yellowPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIV.transform.position = yellowPlayerIV_Pos;
+                            YellowPlayerIV_Script.yellowPlayerIV_ColName = TagHolder.NONE;
+                            yellowPlayerIV_Steps = 0;
+                            playerTurn = TagHolder.GREEN;
+                        }
+                    }
+
+                    if (curruntPlayerName.Contains( TagHolder.BLUE))
+                    {
+                        if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerI.transform.position = redPlayerI_Pos;
+                            RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
+                            redPlayerI_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerII.transform.position = redPlayerII_Pos;
+                            RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
+                            redPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIII.transform.position = redPlayerIII_Pos;
+                            RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
+                            redPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIV.transform.position = redPlayerIV_Pos;
+                            RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
+                            redPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+
+                        if (curruntPlayer == GreenPlayerI_Script.greenPlayerI_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerI_Script.greenPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerI.transform.position = greenPlayerI_Pos;
+                            GreenPlayerI_Script.greenPlayerI_ColName = TagHolder.NONE;
+                            greenPlayerI_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == GreenPlayerII_Script.greenPlayerII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerII_Script.greenPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerII.transform.position = greenPlayerII_Pos;
+                            GreenPlayerII_Script.greenPlayerII_ColName = TagHolder.NONE;
+                            greenPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == GreenPlayerIII_Script.greenPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIII_Script.greenPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIII.transform.position = greenPlayerIII_Pos;
+                            GreenPlayerIII_Script.greenPlayerIII_ColName = TagHolder.NONE;
+                            greenPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == GreenPlayerIV_Script.greenPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIV_Script.greenPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIV.transform.position = greenPlayerIV_Pos;
+                            GreenPlayerIV_Script.greenPlayerIV_ColName = TagHolder.NONE;
+                            greenPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+
+                        if (curruntPlayer == YellowPlayerI_Script.yellowPlayerI_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerI_Script.yellowPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerI.transform.position = yellowPlayerI_Pos;
+                            YellowPlayerI_Script.yellowPlayerI_ColName = TagHolder.NONE;
+                            yellowPlayerI_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == YellowPlayerII_Script.yellowPlayerII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerII_Script.yellowPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerII.transform.position = yellowPlayerII_Pos;
+                            YellowPlayerII_Script.yellowPlayerII_ColName = TagHolder.NONE;
+                            yellowPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == YellowPlayerIII_Script.yellowPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIII_Script.yellowPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIII.transform.position = yellowPlayerIII_Pos;
+                            YellowPlayerIII_Script.yellowPlayerIII_ColName = TagHolder.NONE;
+                            yellowPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                        if (curruntPlayer == YellowPlayerIV_Script.yellowPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIV_Script.yellowPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            yellowPlayerIV.transform.position = yellowPlayerIV_Pos;
+                            YellowPlayerIV_Script.yellowPlayerIV_ColName = TagHolder.NONE;
+                            yellowPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.BLUE;
+                        }
+                    }
+
+                    if (curruntPlayerName.Contains(TagHolder.YELLOW_PLAYER))
+                    {
+                        if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerI.transform.position = redPlayerI_Pos;
+                            RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
+                            redPlayerI_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerII.transform.position = redPlayerII_Pos;
+                            RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
+                            redPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIII.transform.position = redPlayerIII_Pos;
+                            RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
+                            redPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            redPlayerIV.transform.position = redPlayerIV_Pos;
+                            RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
+                            redPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+
+                        if (curruntPlayer == GreenPlayerI_Script.greenPlayerI_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerI_Script.greenPlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerI.transform.position = greenPlayerI_Pos;
+                            GreenPlayerI_Script.greenPlayerI_ColName = TagHolder.NONE;
+                            greenPlayerI_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == GreenPlayerII_Script.greenPlayerII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerII_Script.greenPlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerII.transform.position = greenPlayerII_Pos;
+                            GreenPlayerII_Script.greenPlayerII_ColName = TagHolder.NONE;
+                            greenPlayerII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == GreenPlayerIII_Script.greenPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIII_Script.greenPlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIII.transform.position = greenPlayerIII_Pos;
+                            GreenPlayerIII_Script.greenPlayerIII_ColName = TagHolder.NONE;
+                            greenPlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == GreenPlayerIV_Script.greenPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIV_Script.greenPlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            greenPlayerIV.transform.position = greenPlayerIV_Pos;
+                            GreenPlayerIV_Script.greenPlayerIV_ColName = TagHolder.NONE;
+                            greenPlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+
+                        if (curruntPlayer == BluePlayerI_Script.bluePlayerI_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerI_Script.bluePlayerI_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerI.transform.position = bluePlayerI_Pos;
+                            BluePlayerI_Script.bluePlayerI_ColName = TagHolder.NONE;
+                            bluePlayerI_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == BluePlayerII_Script.bluePlayerII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerII_Script.bluePlayerII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerII.transform.position = bluePlayerII_Pos;
+                            BluePlayerII_Script.bluePlayerII_ColName = TagHolder.NONE;
+                            bluePlayerII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == BluePlayerIII_Script.bluePlayerIII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIII_Script.bluePlayerIII_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIII.transform.position = bluePlayerIII_Pos;
+                            BluePlayerIII_Script.bluePlayerIII_ColName = TagHolder.NONE;
+                            bluePlayerIII_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                        if (curruntPlayer == BluePlayerIV_Script.bluePlayerIV_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIV_Script.bluePlayerIV_ColName != TagHolder.STAR))
+                        {
+                            SoundManagerScript.dismissalAudioSource.Play();
+                            bluePlayerIV.transform.position = bluePlayerIV_Pos;
+                            BluePlayerIV_Script.bluePlayerIV_ColName = TagHolder.NONE;
+                            bluePlayerIV_Steps = 0;
+                            playerTurn =  TagHolder.YELLOW;
+                        }
+                    }
+                    break;
+            }
+        }
+            #endregion
+
+            switch (MainMenuScript.howManyPlayers)
         {
             case 2:
-                if (playerTurn == "RED")
+                if (playerTurn == TagHolder.RED)
                 {
                     diceRoll.position = redDiceRollPos.position;
 
                     SetFrame(Red: true);
                 }
-                if (playerTurn == "GREEN")
+                if (playerTurn == TagHolder.GREEN)
                 {
                     diceRoll.position = greenDiceRollPos.position;
 
@@ -736,19 +1443,19 @@ public class GameManager : MonoBehaviour
                 break;
 
             case 3:
-                if (playerTurn == "RED")
+                if (playerTurn == TagHolder.RED)
                 {
                     diceRoll.position = redDiceRollPos.position;
 
                     SetFrame(Red: true);
                 }
-                if (playerTurn == "YELLOW")
+                if (playerTurn ==  TagHolder.YELLOW)
                 {
                     diceRoll.position = yellowDiceRollPos.position;
 
                     SetFrame(Yellow: true);
                 }
-                if (playerTurn == "BLUE")
+                if (playerTurn ==  TagHolder.BLUE)
                 {
                     diceRoll.position = blueDiceRollPos.position;
 
@@ -768,26 +1475,26 @@ public class GameManager : MonoBehaviour
                 break;
 
             case 4:
-                if (playerTurn == "RED")
+                if (playerTurn == TagHolder.RED)
                 {
                     diceRoll.position = redDiceRollPos.position;
 
                     SetFrame(Red: true);
                 }
-                if (playerTurn == "GREEN")
+                if (playerTurn == TagHolder.GREEN)
                 {
                     diceRoll.position = greenDiceRollPos.position;
 
                     SetFrame(Green: true);
 
                 }
-                if (playerTurn == "YELLOW")
+                if (playerTurn ==  TagHolder.YELLOW)
                 {
                     diceRoll.position = yellowDiceRollPos.position;
 
                     SetFrame(Yellow: true);
                 }
-                if (playerTurn == "BLUE")
+                if (playerTurn ==  TagHolder.BLUE)
                 {
                     diceRoll.position = blueDiceRollPos.position;
 
@@ -921,27 +1628,34 @@ public class GameManager : MonoBehaviour
                     SetPlayer(TagHolder.RED, 4, true);
 
                 }
+
                 //====================== PLAYERS DON'T HAVE ANY MOVES ,SWITCH TO NEXT TURN===============================
                 if (!redPlayerI_Border.activeInHierarchy && !redPlayerII_Border.activeInHierarchy &&
-                   !redPlayerIII_Border.activeInHierarchy && !redPlayerIV_Border.activeInHierarchy)
+                   !redPlayerIII_Border.activeInHierarchy && !redPlayerIV_Border.activeInHierarchy  )
                 {
+                    if(selectDiceNumAnimation == 8)
+                    {
+                        playerTurn = TagHolder.RED;
+                        InitializeDice();
 
+                        break;
+                    }
                     SetButton(TagHolder.RED);
 
                     switch (MainMenuScript.howManyPlayers)
                     {
                         case 2:
-                            playerTurn = "GREEN";
+                            playerTurn = TagHolder.GREEN;
                             InitializeDice();
                             break;
 
                         case 3:
-                            playerTurn = "BLUE";
+                            playerTurn =  TagHolder.BLUE;
                             InitializeDice();
                             break;
 
                         case 4:
-                            playerTurn = "BLUE";
+                            playerTurn =  TagHolder.BLUE;
                             InitializeDice();
                             break;
                     }
@@ -1016,7 +1730,7 @@ public class GameManager : MonoBehaviour
                             break;
 
                         case 4:
-                            playerTurn = "YELLOW";
+                            playerTurn =  TagHolder.YELLOW;
                             InitializeDice();
                             break;
                     }
@@ -1088,12 +1802,12 @@ public class GameManager : MonoBehaviour
                             break;
 
                         case 3:
-                            playerTurn = "YELLOW";
+                            playerTurn =  TagHolder.YELLOW;
                             InitializeDice();
                             break;
 
                         case 4:
-                            playerTurn = "GREEN";
+                            playerTurn = TagHolder.GREEN;
                             InitializeDice();
                             break;
                     }
@@ -1233,15 +1947,15 @@ public class GameManager : MonoBehaviour
                         switch (MainMenuScript.howManyPlayers)
                         {
                             case 2:
-                                playerTurn = "GREEN";
+                                playerTurn = TagHolder.GREEN;
                                 break;
 
                             case 3:
-                                playerTurn = "BLUE";
+                                playerTurn =  TagHolder.BLUE;
                                 break;
 
                             case 4:
-                                playerTurn = "BLUE";
+                                playerTurn =  TagHolder.BLUE;
                                 break;
                         }
                     }
@@ -1258,7 +1972,7 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 4:
-                                playerTurn = "YELLOW";
+                                playerTurn =  TagHolder.YELLOW;
                                 break;
                         }
                     }
@@ -1271,11 +1985,11 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 3:
-                                playerTurn = "YELLOW";
+                                playerTurn =  TagHolder.YELLOW;
                                 break;
 
                             case 4:
-                                playerTurn = "GREEN";
+                                playerTurn = TagHolder.GREEN;
                                 break;
                         }
                     }
@@ -1319,7 +2033,7 @@ public class GameManager : MonoBehaviour
                     Player_Path[0] = _MovementBlocks[playerSteps].transform.position;
                     playerSteps += 1;
                     playerTurn = _color;
-                    //currentPlayer = RedPlayerI_Script.redPlayerI_ColName;
+                    //curruntPlayer = RedPlayerI_Script.redPlayerI_ColName;
                     curruntPlayerName = _curruntPlayerName;
 
                     iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
@@ -1369,15 +2083,15 @@ public class GameManager : MonoBehaviour
                         switch (MainMenuScript.howManyPlayers)
                         {
                             case 2:
-                                playerTurn = "GREEN";
+                                playerTurn = TagHolder.GREEN;
                                 break;
 
                             case 3:
-                                playerTurn = "BLUE";
+                                playerTurn =  TagHolder.BLUE;
                                 break;
 
                             case 4:
-                                playerTurn = "BLUE";
+                                playerTurn =  TagHolder.BLUE;
                                 break;
                         }
                     }
@@ -1394,7 +2108,7 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 4:
-                                playerTurn = "YELLOW";
+                                playerTurn =  TagHolder.YELLOW;
                                 break;
                         }
                     }
@@ -1407,11 +2121,11 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 3:
-                                playerTurn = "YELLOW";
+                                playerTurn =  TagHolder.YELLOW;
                                 break;
 
                             case 4:
-                                playerTurn = "GREEN";
+                                playerTurn = TagHolder.GREEN;
                                 break;
                         }
                     }
@@ -1571,15 +2285,15 @@ public class GameManager : MonoBehaviour
     //                switch (MainMenuScript.howManyPlayers)
     //                {
     //                    case 2:
-    //                        playerTurn = "GREEN";
+    //                        playerTurn = TagHolder.GREEN;
     //                        break;
 
     //                    case 3:
-    //                        playerTurn = "BLUE";
+    //                        playerTurn =  TagHolder.BLUE;
     //                        break;
 
     //                    case 4:
-    //                        playerTurn = "BLUE";
+    //                        playerTurn =  TagHolder.BLUE;
     //                        break;
     //                }
     //            }
@@ -1605,7 +2319,7 @@ public class GameManager : MonoBehaviour
     //                redPlayer_Path[0] = redMovementBlocks[redPlayerI_Steps].transform.position;
     //                redPlayerI_Steps += 1;
     //                playerTurn = "RED";
-    //                //currentPlayer = RedPlayerI_Script.redPlayerI_ColName;
+    //                //curruntPlayer = RedPlayerI_Script.redPlayerI_ColName;
     //                curruntPlayerName = PlayerName.RED_PLAYER_1;
 
     //                iTween.MoveTo(redPlayerI, iTween.Hash("position", redPlayer_Path[0], "speed", 125, "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
@@ -1652,15 +2366,15 @@ public class GameManager : MonoBehaviour
     //                switch (MainMenuScript.howManyPlayers)
     //                {
     //                    case 2:
-    //                        playerTurn = "GREEN";
+    //                        playerTurn = TagHolder.GREEN;
     //                        break;
 
     //                    case 3:
-    //                        playerTurn = "BLUE";
+    //                        playerTurn =  TagHolder.BLUE;
     //                        break;
 
     //                    case 4:
-    //                        playerTurn = "BLUE";
+    //                        playerTurn =  TagHolder.BLUE;
     //                        break;
     //                }
     //                InitializeDice();
