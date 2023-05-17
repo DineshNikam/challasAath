@@ -9,9 +9,20 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     #region Variables
+
+    public enum diceValue ///select dice value ///
+    {
+        none, one, two, three, four, eight
+    }
+    public diceValue selectDiceValue;
+
+
     private int totalBlueInHouse, totalRedInHouse, totalGreenInHouse, totalYellowInHouse;
 
     public GameObject frameRed, frameGreen, frameBlue, frameYellow;
+
+    public GameObject blueScreen, greenScreen, redScreen, yellowScreen;
+
 
     public Vector3 redPlayerI_Pos, redPlayerII_Pos, redPlayerIII_Pos, redPlayerIV_Pos;
     public Vector3 greenPlayerI_Pos, greenPlayerII_Pos, greenPlayerIII_Pos, greenPlayerIV_Pos;
@@ -78,10 +89,13 @@ public class GameManager : MonoBehaviour
     public List<BounceAnimation> animGreenPlayer = new List<BounceAnimation>();
     public List<BounceAnimation> animBluePlayer = new List<BounceAnimation>();
     public List<BounceAnimation> animYellowPlayer = new List<BounceAnimation>();
-    public bool shouldMakeEight;
 
 
     public List<GameObject> PlayersContainer = new List<GameObject>(4);
+    
+
+    
+
     #endregion
     #region Confirm Screeen
     public void yesMethod()
@@ -635,6 +649,367 @@ public class GameManager : MonoBehaviour
 
         DiceRollButton.interactable = true;
         SetAllAnimationFalse();
+        #region //================= CHECKING PLAYERS WHO WINS SURING GAMEPLAY===================================
+
+        switch (MainMenuScript.howManyPlayers)
+        {
+            case 2:
+                if (totalRedInHouse > 3)
+                {
+                    SoundManagerScript.winAudioSource.Play();
+                    redScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    playerTurn = "NONE";
+                }
+
+                if (totalGreenInHouse > 3)
+                {
+                    SoundManagerScript.winAudioSource.Play();
+                    greenScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    playerTurn = "NONE";
+                }
+                break;
+
+            case 3:
+                // If any 1 of 3 player wins==============================================
+                if (totalRedInHouse > 3 && totalBlueInHouse < 4 && totalYellowInHouse < 4 && playerTurn == "RED")
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+
+                    redScreen.SetActive(true);
+                    Debug.Log("Red Player WON");
+                    playerTurn = "BLUE";
+                }
+
+                if (totalBlueInHouse > 3 && totalRedInHouse < 4 && totalYellowInHouse < 4 && playerTurn == "BLUE")
+                {
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    blueScreen.SetActive(true);
+                    Debug.Log("Blue Player WON");
+                    playerTurn = "YELLOW";
+                }
+
+                if (totalYellowInHouse > 3 && totalRedInHouse < 4 && totalBlueInHouse < 4 && playerTurn == "YELLOW")
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    yellowScreen.SetActive(true);
+                    Debug.Log("Yellow Player WON");
+                    playerTurn = "RED";
+                }
+                // If any 2 of 3 player wins============================================== 
+                if (totalRedInHouse > 3 && totalBlueInHouse > 3 && totalYellowInHouse < 4)
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    redScreen.SetActive(true);
+                    blueScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    Debug.Log("GAME ENDED");
+                    playerTurn = "NONE";
+                }
+
+                if (totalBlueInHouse > 3 && totalYellowInHouse > 3 && totalRedInHouse < 4)
+                {
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    yellowScreen.SetActive(true);
+                    blueScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    Debug.Log("GAME ENDED");
+                    playerTurn = "NONE";
+                }
+
+                if (totalYellowInHouse > 3 && totalRedInHouse > 3 && totalBlueInHouse < 4)
+                {
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    redScreen.SetActive(true);
+                    yellowScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    Debug.Log("GAME ENDED");
+                    playerTurn = "NONE";
+                }
+
+                break;
+
+            case 4:
+                // If any 1 of 4 player wins=======================================================================
+                if (totalRedInHouse > 3 && totalBlueInHouse < 4 && totalGreenInHouse < 4 && totalYellowInHouse < 4 && playerTurn == "RED")
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+
+                    redScreen.SetActive(true);
+                    Debug.Log("Red Player WON");
+                    playerTurn = "BLUE";
+                }
+
+                if (totalBlueInHouse > 3 && totalRedInHouse < 4 && totalGreenInHouse < 4 && totalYellowInHouse < 4 && playerTurn == "BLUE")
+                {
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    blueScreen.SetActive(true);
+                    Debug.Log("Blue Player WON");
+                    playerTurn = "GREEN";
+                }
+
+                if (totalGreenInHouse > 3 && totalRedInHouse < 4 && totalBlueInHouse < 4 && totalYellowInHouse < 4 && playerTurn == "GREEN")
+                {
+                    if (!greenScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    greenScreen.SetActive(true);
+                    Debug.Log("Green Player WON");
+                    playerTurn = "YELLOW";
+                }
+
+                if (totalYellowInHouse > 3 && totalRedInHouse < 4 && totalBlueInHouse < 4 && totalGreenInHouse < 4 && playerTurn == "YELLOW")
+                {
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    yellowScreen.SetActive(true);
+                    Debug.Log("Yellow Player WON");
+                    playerTurn = "RED";
+                }
+                // If any 2 of 4 player wins=======================================================================
+                if (totalRedInHouse > 3 && totalBlueInHouse > 3 && totalGreenInHouse < 4 && totalYellowInHouse < 4 && (playerTurn == "RED" || playerTurn == "BLUE"))
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    redScreen.SetActive(true);
+                    blueScreen.SetActive(true);
+                    Debug.Log("RED & BLUE - ALREADY WON");
+                    playerTurn = "GREEN";
+                }
+
+                if (totalBlueInHouse > 3 && totalGreenInHouse > 3 && totalRedInHouse < 4 && totalYellowInHouse < 4 && (playerTurn == "BLUE" || playerTurn == "GREEN"))
+                {
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!greenScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    blueScreen.SetActive(true);
+                    greenScreen.SetActive(true);
+                    Debug.Log("GREEN & BLUE - ALREADY WON");
+                    playerTurn = "YELLOW";
+                }
+
+                if (totalGreenInHouse > 3 && totalYellowInHouse > 3 && totalBlueInHouse < 4 && totalRedInHouse < 4 && (playerTurn == "GREEN" || playerTurn == "YELLOW"))
+                {
+                    if (!greenScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    greenScreen.SetActive(true);
+                    yellowScreen.SetActive(true);
+                    Debug.Log("GREEN & YELLOW - ALREADY WON");
+                    playerTurn = "RED";
+                }
+
+                if (totalYellowInHouse > 3 && totalRedInHouse > 3 && totalBlueInHouse < 4 && totalGreenInHouse < 4 && (playerTurn == "YELLOW" || playerTurn == "RED"))
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    redScreen.SetActive(true);
+                    yellowScreen.SetActive(true);
+                    Debug.Log("YELLOW & RED - ALREADY WON");
+                    playerTurn = "BLUE";
+                }
+
+                //	Diagonally----Red Vs Green ... Yellow Vs Blue winning
+                if (totalYellowInHouse > 3 && totalBlueInHouse > 3 && totalRedInHouse < 4 && totalGreenInHouse < 4 && (playerTurn == "YELLOW" || playerTurn == "BLUE"))
+                {
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    yellowScreen.SetActive(true);
+                    blueScreen.SetActive(true);
+                    Debug.Log("BLUE & YELLOW - ALREADY WON");
+
+                    if (playerTurn == "BLUE")
+                    {
+                        playerTurn = "GREEN";
+                    }
+                    else
+                    {
+                        if (playerTurn == "YELLOW")
+                        {
+                            playerTurn = "RED";
+                        }
+                    }
+                }
+                if (totalRedInHouse > 3 && totalGreenInHouse > 3 && totalYellowInHouse < 4 && totalBlueInHouse < 4 && (playerTurn == "RED" || playerTurn == "GREEN"))
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!greenScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    redScreen.SetActive(true);
+                    greenScreen.SetActive(true);
+                    Debug.Log("RED & GREEN - ALREADY WON");
+
+                    if (playerTurn == "RED")
+                    {
+                        playerTurn = "BLUE";
+                    }
+                    else
+                    {
+                        if (playerTurn == "GREEN")
+                        {
+                            playerTurn = "YELLOW";
+                        }
+                    }
+                }
+                if (totalRedInHouse > 3 && totalGreenInHouse > 3 && totalBlueInHouse > 3 && totalYellowInHouse < 4)
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!greenScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    redScreen.SetActive(true);
+                    greenScreen.SetActive(true);
+                    blueScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    playerTurn = "NONE";
+                }
+
+                if (totalRedInHouse > 3 && totalGreenInHouse > 3 && totalYellowInHouse > 3 && totalBlueInHouse < 4)
+                {
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!greenScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    redScreen.SetActive(true);
+                    greenScreen.SetActive(true);
+                    yellowScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    playerTurn = "NONE";
+                }
+
+                if (totalBlueInHouse > 3 && totalGreenInHouse > 3 && totalYellowInHouse > 3 && totalRedInHouse < 4)
+                {
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!greenScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    blueScreen.SetActive(true);
+                    greenScreen.SetActive(true);
+                    yellowScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    playerTurn = "NONE";
+                }
+
+                if (totalBlueInHouse > 3 && totalRedInHouse > 3 && totalYellowInHouse > 3 && totalGreenInHouse < 4)
+                {
+                    if (!blueScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!redScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    if (!yellowScreen.activeInHierarchy)
+                    {
+                        SoundManagerScript.winAudioSource.Play();
+                    }
+                    blueScreen.SetActive(true);
+                    redScreen.SetActive(true);
+                    yellowScreen.SetActive(true);
+                    StartCoroutine("GameCompletedRoutine");
+                    playerTurn = "NONE";
+                }
+                break;
+        }
+        #endregion
 
         #region ======== Getting curruntPlayer VALUE=======
         if (curruntPlayerName.Contains(TagHolder.RED_PLAYER))
@@ -1206,7 +1581,7 @@ public class GameManager : MonoBehaviour
                         }
                     }
 
-                    if (curruntPlayerName.Contains( TagHolder.BLUE))
+                    if (curruntPlayerName.Contains( TagHolder.BLUE_PLAYER))
                     {
                         if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
                         {
@@ -1514,17 +1889,39 @@ public class GameManager : MonoBehaviour
         }
     }//initializeDice
 
-
+  
     public void DiceRoll()
     {
+        
         SoundManagerScript.diceAudioSource.Play();
         DiceRollButton.interactable = false;
 
         selectDiceNumAnimation = randomNo.Next(1, 6);
         if (selectDiceNumAnimation == 5) { selectDiceNumAnimation = 8; }
 
-        if (shouldMakeEight)
-            selectDiceNumAnimation = 8;
+       
+        switch(selectDiceValue)
+        {
+            case diceValue.none:
+                
+                break;
+            case diceValue.one:
+                selectDiceNumAnimation = 1;
+                break;
+            case diceValue.two:
+                selectDiceNumAnimation = 2;
+                break;
+            case diceValue.three:
+                selectDiceNumAnimation =3 ;
+                break;
+            case diceValue.four:
+                selectDiceNumAnimation = 4;
+                break;
+            case diceValue.eight:
+                selectDiceNumAnimation = 8;
+                break;
+        }
+
         switch (selectDiceNumAnimation)
         {
             case 1:
@@ -1633,7 +2030,7 @@ public class GameManager : MonoBehaviour
                 if (!redPlayerI_Border.activeInHierarchy && !redPlayerII_Border.activeInHierarchy &&
                    !redPlayerIII_Border.activeInHierarchy && !redPlayerIV_Border.activeInHierarchy  )
                 {
-                    if(selectDiceNumAnimation == 8)
+                    if(selectDiceNumAnimation == 8 || selectDiceNumAnimation == 4)
                     {
                         playerTurn = TagHolder.RED;
                         InitializeDice();
@@ -1716,6 +2113,13 @@ public class GameManager : MonoBehaviour
                 if (!greenPlayerI_Border.activeInHierarchy && !greenPlayerII_Border.activeInHierarchy &&
                     !greenPlayerIII_Border.activeInHierarchy && !greenPlayerIV_Border.activeInHierarchy)
                 {
+                    if (selectDiceNumAnimation == 8 || selectDiceNumAnimation == 4)
+                    {
+                        playerTurn = TagHolder.GREEN;
+                        InitializeDice();
+
+                        break;
+                    }
                     SetButton(TagHolder.GREEN);
 
                     switch (MainMenuScript.howManyPlayers)
@@ -1793,6 +2197,13 @@ public class GameManager : MonoBehaviour
                 if (!bluePlayerI_Border.activeInHierarchy && !bluePlayerII_Border.activeInHierarchy &&
                     !bluePlayerIII_Border.activeInHierarchy && !bluePlayerIV_Border.activeInHierarchy)
                 {
+                    if (selectDiceNumAnimation == 8 || selectDiceNumAnimation == 4)
+                    {
+                        playerTurn = TagHolder.BLUE;
+                        InitializeDice();
+
+                        break;
+                    }
                     SetButton(TagHolder.BLUE);
 
                     switch (MainMenuScript.howManyPlayers)
@@ -1886,6 +2297,13 @@ public class GameManager : MonoBehaviour
                 if (!yellowPlayerI_Border.activeInHierarchy && !yellowPlayerII_Border.activeInHierarchy &&
                     !yellowPlayerIII_Border.activeInHierarchy && !yellowPlayerIV_Border.activeInHierarchy)
                 {
+                    if (selectDiceNumAnimation == 8 || selectDiceNumAnimation == 4)
+                    {
+                        playerTurn = TagHolder.YELLOW;
+                        InitializeDice();
+
+                        break;
+                    }
                     SetButton(TagHolder.YELLOW);
 
                     switch (MainMenuScript.howManyPlayers)
@@ -1935,7 +2353,7 @@ public class GameManager : MonoBehaviour
 
                 playerSteps += selectDiceNumAnimation;
 
-                if (selectDiceNumAnimation == 8)
+                if (selectDiceNumAnimation == 8 ||selectDiceNumAnimation == 4)
                 {
                     playerTurn = _color;
                 }
