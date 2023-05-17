@@ -10,8 +10,9 @@ namespace Assets.Scripts
 
         public void runThis()
         {
-            int num = 8;
-            print(num == 8 ? 5 : num);
+            int num = 5;
+            num = (num == 5) ? 8 : num;
+            print(num);
         }
 
         void Start()

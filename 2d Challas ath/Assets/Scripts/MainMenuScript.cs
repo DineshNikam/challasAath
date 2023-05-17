@@ -32,6 +32,7 @@ public class MainMenuScript : MonoBehaviour
 	public void quit()
 	{
 		SoundManagerScript.buttonAudioSource.Play ();
-		Application.Quit ();
+		Application.Quit();
+		
 	}
 }

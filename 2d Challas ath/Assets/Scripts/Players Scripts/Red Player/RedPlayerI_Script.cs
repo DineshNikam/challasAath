@@ -19,6 +19,7 @@ public class RedPlayerI_Script : MonoBehaviour
                 SoundManagerScript.safeHouseAudioSource.Play();
             }
         }
+      
     }
 
     void Start()

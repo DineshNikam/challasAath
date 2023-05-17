@@ -2338,7 +2338,6 @@ MonoBehaviour:
   dice4_Roll_Animation: {fileID: 1614738108}
   dice8_Roll_Animation: {fileID: 526920820}
   redMovementBlocks:
-  - {fileID: 1361224250}
   - {fileID: 1918193117}
   - {fileID: 91259412}
   - {fileID: 476452797}
@@ -2364,7 +2363,6 @@ MonoBehaviour:
   - {fileID: 381635929}
   - {fileID: 1018702306}
   greenMovementBlocks:
-  - {fileID: 2138939264}
   - {fileID: 1298214815}
   - {fileID: 1373418230}
   - {fileID: 1473304629}
@@ -2390,7 +2388,6 @@ MonoBehaviour:
   - {fileID: 320866674}
   - {fileID: 850124352}
   yellowMovementBlocks:
-  - {fileID: 1335316298}
   - {fileID: 1059737913}
   - {fileID: 2045998519}
   - {fileID: 29144806}
@@ -2416,7 +2413,6 @@ MonoBehaviour:
   - {fileID: 107779417}
   - {fileID: 1920669104}
   blueMovementBlocks:
-  - {fileID: 1790266170}
   - {fileID: 1763997988}
   - {fileID: 1665970480}
   - {fileID: 771301872}

@@ -649,7 +649,7 @@ public class GameManager : MonoBehaviour
 
         DiceRollButton.interactable = true;
         SetAllAnimationFalse();
-        #region //================= CHECKING PLAYERS WHO WINS SURING GAMEPLAY===================================
+        #region //================= CHECKING PLAYERS WHO WINS DURING GAMEPLAY===================================
 
         switch (MainMenuScript.howManyPlayers)
         {
@@ -1960,7 +1960,7 @@ public class GameManager : MonoBehaviour
                 #region Red
                 //==================== CONDITION FOR BORDER GLOW ========================
 
-                if ((redMovementBlocks.Count - redPlayerI_Steps) >= selectDiceNumAnimation && redPlayerI_Steps > 0 && (redMovementBlocks.Count > redPlayerI_Steps))
+                if ((redMovementBlocks.Count - redPlayerI_Steps) >= selectDiceNumAnimation && redPlayerI_Steps >= 0 && (redMovementBlocks.Count > redPlayerI_Steps))
                 {
                     SetPlayer(TagHolder.RED, 1, true);
 
@@ -1970,7 +1970,7 @@ public class GameManager : MonoBehaviour
                     SetPlayer(TagHolder.RED, 1, false);
                 }
 
-                if ((redMovementBlocks.Count - redPlayerII_Steps) >= selectDiceNumAnimation && redPlayerII_Steps > 0 && (redMovementBlocks.Count > redPlayerII_Steps))
+                if ((redMovementBlocks.Count - redPlayerII_Steps) >= selectDiceNumAnimation && redPlayerII_Steps >= 0 && (redMovementBlocks.Count > redPlayerII_Steps))
                 {
                     SetPlayer(TagHolder.RED, 2, true);
                 }
@@ -1980,7 +1980,7 @@ public class GameManager : MonoBehaviour
 
                 }
 
-                if ((redMovementBlocks.Count - redPlayerIII_Steps) >= selectDiceNumAnimation && redPlayerIII_Steps > 0 && (redMovementBlocks.Count > redPlayerIII_Steps))
+                if ((redMovementBlocks.Count - redPlayerIII_Steps) >= selectDiceNumAnimation && redPlayerIII_Steps >= 0 && (redMovementBlocks.Count > redPlayerIII_Steps))
                 {
                     SetPlayer(TagHolder.RED, 3, true);
 
@@ -1991,7 +1991,7 @@ public class GameManager : MonoBehaviour
 
                 }
 
-                if ((redMovementBlocks.Count - redPlayerIV_Steps) >= selectDiceNumAnimation && redPlayerIV_Steps > 0 && (redMovementBlocks.Count > redPlayerIV_Steps))
+                if ((redMovementBlocks.Count - redPlayerIV_Steps) >= selectDiceNumAnimation && redPlayerIV_Steps >= 0 && (redMovementBlocks.Count > redPlayerIV_Steps))
                 {
                     SetPlayer(TagHolder.RED, 4, true);
 
@@ -2004,27 +2004,27 @@ public class GameManager : MonoBehaviour
 
                 //========================= PLAYERS BORDER GLOW WHEN OPENING ===========================================
 
-                if (selectDiceNumAnimation == 8 && redPlayerI_Steps == 0)
-                {
+                //if (selectDiceNumAnimation == 8 && redPlayerI_Steps == 0)
+                //{
 
-                    SetPlayer(TagHolder.RED, 1, true);
+                //    SetPlayer(TagHolder.RED, 1, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && redPlayerII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.RED, 2, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && redPlayerII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.RED, 2, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && redPlayerIII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.RED, 3, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && redPlayerIII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.RED, 3, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && redPlayerIV_Steps == 0)
-                {
-                    SetPlayer(TagHolder.RED, 4, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && redPlayerIV_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.RED, 4, true);
 
-                }
+                //}
 
                 //====================== PLAYERS DON'T HAVE ANY MOVES ,SWITCH TO NEXT TURN===============================
                 if (!redPlayerI_Border.activeInHierarchy && !redPlayerII_Border.activeInHierarchy &&
@@ -2062,51 +2062,51 @@ public class GameManager : MonoBehaviour
             case TagHolder.GREEN:
                 #region Green
                 //==================== CONDITION FOR BORDER GLOW ========================
-                if ((greenMovementBlocks.Count - greenPlayerI_Steps) >= selectDiceNumAnimation && greenPlayerI_Steps > 0 && (greenMovementBlocks.Count > greenPlayerI_Steps))
+                if ((greenMovementBlocks.Count - greenPlayerI_Steps) >= selectDiceNumAnimation && greenPlayerI_Steps >= 0 && (greenMovementBlocks.Count > greenPlayerI_Steps))
 
                     SetPlayer(TagHolder.GREEN, 1, true);
                 else SetPlayer(TagHolder.GREEN, 1, false);
 
 
-                if ((greenMovementBlocks.Count - greenPlayerII_Steps) >= selectDiceNumAnimation && greenPlayerII_Steps > 0 && (greenMovementBlocks.Count > greenPlayerII_Steps))
+                if ((greenMovementBlocks.Count - greenPlayerII_Steps) >= selectDiceNumAnimation && greenPlayerII_Steps >= 0 && (greenMovementBlocks.Count > greenPlayerII_Steps))
 
                     SetPlayer(TagHolder.GREEN, 2, true);
                 else SetPlayer(TagHolder.GREEN, 2, false);
 
 
-                if ((greenMovementBlocks.Count - greenPlayerIII_Steps) >= selectDiceNumAnimation && greenPlayerIII_Steps > 0 && (greenMovementBlocks.Count > greenPlayerIII_Steps))
+                if ((greenMovementBlocks.Count - greenPlayerIII_Steps) >= selectDiceNumAnimation && greenPlayerIII_Steps >= 0 && (greenMovementBlocks.Count > greenPlayerIII_Steps))
                     SetPlayer(TagHolder.GREEN, 3, true);
                 else SetPlayer(TagHolder.GREEN, 3, false);
 
 
-                if ((greenMovementBlocks.Count - greenPlayerIV_Steps) >= selectDiceNumAnimation && greenPlayerIV_Steps > 0 && (greenMovementBlocks.Count > greenPlayerIV_Steps))
+                if ((greenMovementBlocks.Count - greenPlayerIV_Steps) >= selectDiceNumAnimation && greenPlayerIV_Steps >= 0 && (greenMovementBlocks.Count > greenPlayerIV_Steps))
                     SetPlayer(TagHolder.GREEN, 4, true);
                 else SetPlayer(TagHolder.GREEN, 4, false);
 
                 //==========================Glow Border when dice hit 8 and player inside house==========================================
 
-                if (selectDiceNumAnimation == 8 && greenPlayerI_Steps == 0)
-                {
+                //if (selectDiceNumAnimation == 8 && greenPlayerI_Steps == 0)
+                //{
 
 
-                    SetPlayer(TagHolder.GREEN, 1, true);
+                //    SetPlayer(TagHolder.GREEN, 1, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && greenPlayerII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.GREEN, 2, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && greenPlayerII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.GREEN, 2, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && greenPlayerIII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.GREEN, 3, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && greenPlayerIII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.GREEN, 3, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && greenPlayerIV_Steps == 0)
-                {
-                    SetPlayer(TagHolder.GREEN, 4, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && greenPlayerIV_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.GREEN, 4, true);
 
-                }
+                //}
 
 
                 //====================== PLAYERS DON'T HAVE ANY MOVES ,SWITCH TO NEXT TURN===============================
@@ -2144,14 +2144,14 @@ public class GameManager : MonoBehaviour
             case TagHolder.BLUE:
                 #region Blue
                 //==================== CONDITION FOR BORDER GLOW ========================
-                if ((blueMovementBlocks.Count - bluePlayerI_Steps) >= selectDiceNumAnimation && bluePlayerI_Steps > 0 && (blueMovementBlocks.Count > bluePlayerI_Steps))
+                if ((blueMovementBlocks.Count - bluePlayerI_Steps) >= selectDiceNumAnimation && bluePlayerI_Steps >= 0 && (blueMovementBlocks.Count > bluePlayerI_Steps))
 
                     SetPlayer(TagHolder.BLUE, 1, true);
                 else
 
                     SetPlayer(TagHolder.BLUE, 1, false);
 
-                if ((blueMovementBlocks.Count - bluePlayerII_Steps) >= selectDiceNumAnimation && bluePlayerII_Steps > 0 && (blueMovementBlocks.Count > bluePlayerII_Steps))
+                if ((blueMovementBlocks.Count - bluePlayerII_Steps) >= selectDiceNumAnimation && bluePlayerII_Steps >= 0 && (blueMovementBlocks.Count > bluePlayerII_Steps))
                     SetPlayer(TagHolder.BLUE, 2, true);
                 else
                     SetPlayer(TagHolder.BLUE, 2, false);
@@ -2159,39 +2159,39 @@ public class GameManager : MonoBehaviour
 
 
 
-                if ((blueMovementBlocks.Count - bluePlayerIII_Steps) >= selectDiceNumAnimation && bluePlayerIII_Steps > 0 && (blueMovementBlocks.Count > bluePlayerIII_Steps))
+                if ((blueMovementBlocks.Count - bluePlayerIII_Steps) >= selectDiceNumAnimation && bluePlayerIII_Steps >= 0 && (blueMovementBlocks.Count > bluePlayerIII_Steps))
                     SetPlayer(TagHolder.BLUE, 3, true);
                 else
                     SetPlayer(TagHolder.BLUE, 3, false);
 
 
 
-                if ((blueMovementBlocks.Count - bluePlayerIV_Steps) >= selectDiceNumAnimation && bluePlayerIV_Steps > 0 && (blueMovementBlocks.Count > bluePlayerIV_Steps))
+                if ((blueMovementBlocks.Count - bluePlayerIV_Steps) >= selectDiceNumAnimation && bluePlayerIV_Steps >= 0 && (blueMovementBlocks.Count > bluePlayerIV_Steps))
                     SetPlayer(TagHolder.BLUE, 4, true);
                 else
                     SetPlayer(TagHolder.BLUE, 4, false);
 
 
                 //==========================Glow Border when dice hit 8 and player inside house==========================================
-                if (selectDiceNumAnimation == 8 && bluePlayerI_Steps == 0)
-                {
-                    SetPlayer(TagHolder.BLUE, 1, true);
-                }
-                if (selectDiceNumAnimation == 8 && bluePlayerII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.BLUE, 2, true);
+                //if (selectDiceNumAnimation == 8 && bluePlayerI_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.BLUE, 1, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && bluePlayerII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.BLUE, 2, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && bluePlayerIII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.BLUE, 3, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && bluePlayerIII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.BLUE, 3, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && bluePlayerIV_Steps == 0)
-                {
-                    SetPlayer(TagHolder.BLUE, 4, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && bluePlayerIV_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.BLUE, 4, true);
 
-                }
+                //}
 
                 //====================== PLAYERS DON'T HAVE ANY MOVES ,SWITCH TO NEXT TURN===============================
                 if (!bluePlayerI_Border.activeInHierarchy && !bluePlayerII_Border.activeInHierarchy &&
@@ -2228,7 +2228,7 @@ public class GameManager : MonoBehaviour
             case TagHolder.YELLOW:
                 #region Yellow
                 //==================== CONDITION FOR BORDER GLOW ========================
-                if ((yellowMovementBlocks.Count - yellowPlayerI_Steps) >= selectDiceNumAnimation && yellowPlayerI_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerI_Steps))
+                if ((yellowMovementBlocks.Count - yellowPlayerI_Steps) >= selectDiceNumAnimation && yellowPlayerI_Steps >= 0 && (yellowMovementBlocks.Count > yellowPlayerI_Steps))
                 {
 
                     SetPlayer(TagHolder.YELLOW, 1, true);
@@ -2239,7 +2239,7 @@ public class GameManager : MonoBehaviour
 
                 }
 
-                if ((yellowMovementBlocks.Count - yellowPlayerII_Steps) >= selectDiceNumAnimation && yellowPlayerII_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerII_Steps))
+                if ((yellowMovementBlocks.Count - yellowPlayerII_Steps) >= selectDiceNumAnimation && yellowPlayerII_Steps >= 0 && (yellowMovementBlocks.Count > yellowPlayerII_Steps))
                 {
 
                     SetPlayer(TagHolder.YELLOW, 2, true);
@@ -2250,7 +2250,7 @@ public class GameManager : MonoBehaviour
                     SetPlayer(TagHolder.YELLOW, 2, false);
                 }
 
-                if ((yellowMovementBlocks.Count - yellowPlayerIII_Steps) >= selectDiceNumAnimation && yellowPlayerIII_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerIII_Steps))
+                if ((yellowMovementBlocks.Count - yellowPlayerIII_Steps) >= selectDiceNumAnimation && yellowPlayerIII_Steps >= 0 && (yellowMovementBlocks.Count > yellowPlayerIII_Steps))
                 {
                     SetPlayer(TagHolder.YELLOW, 3, true);
                 }
@@ -2260,7 +2260,7 @@ public class GameManager : MonoBehaviour
 
                 }
 
-                if ((yellowMovementBlocks.Count - yellowPlayerIV_Steps) >= selectDiceNumAnimation && yellowPlayerIV_Steps > 0 && (yellowMovementBlocks.Count > yellowPlayerIV_Steps))
+                if ((yellowMovementBlocks.Count - yellowPlayerIV_Steps) >= selectDiceNumAnimation && yellowPlayerIV_Steps >= 0 && (yellowMovementBlocks.Count > yellowPlayerIV_Steps))
                 {
                     SetPlayer(TagHolder.YELLOW, 4, true);
                 }
@@ -2272,26 +2272,26 @@ public class GameManager : MonoBehaviour
                 //==========================Glow Border when dice hit 8 and player inside house==========================================
 
 
-                if (selectDiceNumAnimation == 8 && yellowPlayerI_Steps == 0)
-                {
-                    SetPlayer(TagHolder.YELLOW, 1, true);
+                //if (selectDiceNumAnimation == 8 && yellowPlayerI_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.YELLOW, 1, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && yellowPlayerII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.YELLOW, 2, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && yellowPlayerII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.YELLOW, 2, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && yellowPlayerIII_Steps == 0)
-                {
-                    SetPlayer(TagHolder.YELLOW, 3, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && yellowPlayerIII_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.YELLOW, 3, true);
 
-                }
-                if (selectDiceNumAnimation == 8 && yellowPlayerIV_Steps == 0)
-                {
-                    SetPlayer(TagHolder.YELLOW, 4, true);
+                //}
+                //if (selectDiceNumAnimation == 8 && yellowPlayerIV_Steps == 0)
+                //{
+                //    SetPlayer(TagHolder.YELLOW, 4, true);
 
-                }
+                //}
 
                 //====================== PLAYERS DON'T HAVE ANY MOVES ,SWITCH TO NEXT TURN===============================
                 if (!yellowPlayerI_Border.activeInHierarchy && !yellowPlayerII_Border.activeInHierarchy &&
@@ -2337,11 +2337,11 @@ public class GameManager : MonoBehaviour
         SetBorder(_color);
         SetPlayersAnimation(_color);
         SetButton(_color);
-        // 24          -      [0-24]                 
+        // 24          -      [0-24]         
         if (playerTurn == _color && (_MovementBlocks.Count - playerSteps) > selectDiceNumAnimation)//dice outcome is small than remaining steps to take
         {
 
-            if (playerSteps > 0)
+            if (playerSteps >= 0)
             {
 
                 Vector3[] Player_Path = new Vector3[selectDiceNumAnimation];
@@ -2443,20 +2443,20 @@ public class GameManager : MonoBehaviour
                     iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
             }
-            else
-            {
-                if (selectDiceNumAnimation == 8 && playerSteps == 0)
-                {
-                    Vector3[] Player_Path = new Vector3[1];
-                    Player_Path[0] = _MovementBlocks[playerSteps].transform.position;
-                    playerSteps += 1;
-                    playerTurn = _color;
-                    //curruntPlayer = RedPlayerI_Script.redPlayerI_ColName;
-                    curruntPlayerName = _curruntPlayerName;
+            //else
+            //{
+            //    if (selectDiceNumAnimation == 8 && playerSteps == 0)
+            //    {
+            //        Vector3[] Player_Path = new Vector3[1];
+            //        Player_Path[0] = _MovementBlocks[playerSteps].transform.position;
+            //        playerSteps += 1;
+            //        playerTurn = _color;
+            //        //curruntPlayer = RedPlayerI_Script.redPlayerI_ColName;
+            //        curruntPlayerName = _curruntPlayerName;
 
-                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
-                }
-            }
+            //        iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+            //    }
+            //}
 
         }
         else
@@ -2564,10 +2564,16 @@ public class GameManager : MonoBehaviour
                                 break;
                         }
                     }
+                    OrganiizePlayers();
                     InitializeDice();
                 }
             }
         }
+    }
+
+    private void OrganiizePlayers()
+    {
+       
     }
 
     #region Red Player Movement
@@ -2841,10 +2847,8 @@ public class GameManager : MonoBehaviour
             case 2:
                 playerTurn = "RED";
 
-                frameRed.SetActive(true);
-                frameGreen.SetActive(false);
-                frameBlue.SetActive(false);
-                frameYellow.SetActive(false);
+                SetFrame(Red: true);
+
                 //diceRoll.position = redDiceRollPos.position;
                 bluePlayerI.SetActive(false);
                 bluePlayerII.SetActive(false);
@@ -2873,11 +2877,8 @@ public class GameManager : MonoBehaviour
             case 4:
                 playerTurn = "RED";
 
-                frameRed.SetActive(true);
-                frameGreen.SetActive(false);
-                frameBlue.SetActive(false);
-                frameYellow.SetActive(false);
-
+                SetFrame(Red: true);
+                
                 diceRoll.position = redDiceRollPos.position;
                 // keep all players active
                 break;
