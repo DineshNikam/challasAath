@@ -92,9 +92,9 @@ public class GameManager : MonoBehaviour
 
 
     public List<GameObject> PlayersContainer = new List<GameObject>(4);
-    
 
-    
+
+
 
     #endregion
     #region Confirm Screeen
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    
+
 
     #region Utility Methods
 
@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayersAnimation(string str, bool I = false, bool II = false, bool III = false, bool IV = false)
     {
-        
+
         //Debug.Log("animationPlayers " + str + "  values:" + I + II + III + IV);
         switch (str)
         {
@@ -314,7 +314,7 @@ public class GameManager : MonoBehaviour
         if (Green) PlayersContainer[1].transform.SetAsLastSibling();
         if (Blue) PlayersContainer[2].transform.SetAsLastSibling();
         if (Yellow) PlayersContainer[3].transform.SetAsLastSibling();
-        
+
         frameRed.SetActive(Red);
         frameGreen.SetActive(Green);
         frameBlue.SetActive(Blue);
@@ -1018,19 +1018,19 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("curruntPlayerName = " + curruntPlayerName);
                 curruntPlayer = RedPlayerI_Script.redPlayerI_ColName;
-                
+
             }
             if (curruntPlayerName == PlayerName.RED_PLAYER_2)
             {
                 Debug.Log("curruntPlayerName = " + curruntPlayerName);
                 curruntPlayer = RedPlayerII_Script.redPlayerII_ColName;
             }
-            if (curruntPlayerName ==  PlayerName.RED_PLAYER_3)
+            if (curruntPlayerName == PlayerName.RED_PLAYER_3)
             {
                 Debug.Log("curruntPlayerName = " + curruntPlayerName);
                 curruntPlayer = RedPlayerIII_Script.redPlayerIII_ColName;
             }
-            if (curruntPlayerName ==  PlayerName.RED_PLAYER_4)
+            if (curruntPlayerName == PlayerName.RED_PLAYER_4)
             {
                 Debug.Log("curruntPlayerName = " + curruntPlayerName);
                 curruntPlayer = RedPlayerIV_Script.redPlayerIV_ColName;
@@ -1043,10 +1043,12 @@ public class GameManager : MonoBehaviour
                 curruntPlayer = BluePlayerI_Script.bluePlayerI_ColName;
             if (curruntPlayerName == PlayerName.BLUE_PLAYER_2)
                 curruntPlayer = BluePlayerII_Script.bluePlayerII_ColName;
-            if (curruntPlayerName == PlayerName.BLUE_PLAYER_2)
+            if (curruntPlayerName == PlayerName.BLUE_PLAYER_3)
                 curruntPlayer = BluePlayerIII_Script.bluePlayerIII_ColName;
             if (curruntPlayerName == PlayerName.BLUE_PLAYER_4)
                 curruntPlayer = BluePlayerIV_Script.bluePlayerIV_ColName;
+
+
         }
 
         if (curruntPlayerName.Contains(TagHolder.GREEN_PLAYER))
@@ -1085,6 +1087,7 @@ public class GameManager : MonoBehaviour
                 curruntPlayer = YellowPlayerIV_Script.yellowPlayerIV_ColName;
         }
 
+        //Debug.Log("curruntPlayerName = " + curruntPlayerName+ "    Currunt Step : "+curruntPlayer);
         #endregion
 
         #region //================== Player vs Opponent=========================================================
@@ -1094,7 +1097,7 @@ public class GameManager : MonoBehaviour
             {
                 case 2:
                     if (curruntPlayerName.Contains(TagHolder.RED_PLAYER))
-                    {   
+                    {
                         // Checking if player can eliminate other player and they are on same block
                         // (blockName [spot 1 -24 ]== greenPlayer1 Spot name) and  (curruntSpot  not a star  and greenplayer1 spot not a star  
                         if (curruntPlayer == GreenPlayerI_Script.greenPlayerI_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerI_Script.greenPlayerI_ColName != TagHolder.STAR))
@@ -1103,7 +1106,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerI.transform.position = greenPlayerI_Pos;
                             GreenPlayerI_Script.greenPlayerI_ColName = TagHolder.NONE;
                             greenPlayerI_Steps = 0;
-                            playerTurn =TagHolder.RED;
+                            playerTurn = TagHolder.RED;
                         }
                         if (curruntPlayer == GreenPlayerII_Script.greenPlayerII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerII_Script.greenPlayerII_ColName != TagHolder.STAR))
                         {
@@ -1253,7 +1256,7 @@ public class GameManager : MonoBehaviour
                             redPlayerII.transform.position = redPlayerII_Pos;
                             RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
                             redPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1261,7 +1264,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIII.transform.position = redPlayerIII_Pos;
                             RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
                             redPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1269,7 +1272,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIV.transform.position = redPlayerIV_Pos;
                             RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
                             redPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
 
                         if (curruntPlayer == BluePlayerI_Script.bluePlayerI_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerI_Script.bluePlayerI_ColName != TagHolder.STAR))
@@ -1278,7 +1281,7 @@ public class GameManager : MonoBehaviour
                             bluePlayerI.transform.position = bluePlayerI_Pos;
                             BluePlayerI_Script.bluePlayerI_ColName = TagHolder.NONE;
                             bluePlayerI_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == BluePlayerII_Script.bluePlayerII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerII_Script.bluePlayerII_ColName != TagHolder.STAR))
                         {
@@ -1286,7 +1289,7 @@ public class GameManager : MonoBehaviour
                             bluePlayerII.transform.position = bluePlayerII_Pos;
                             BluePlayerII_Script.bluePlayerII_ColName = TagHolder.NONE;
                             bluePlayerII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == BluePlayerIII_Script.bluePlayerIII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIII_Script.bluePlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1294,7 +1297,7 @@ public class GameManager : MonoBehaviour
                             bluePlayerIII.transform.position = bluePlayerIII_Pos;
                             BluePlayerIII_Script.bluePlayerIII_ColName = TagHolder.NONE;
                             bluePlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == BluePlayerIV_Script.bluePlayerIV_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIV_Script.bluePlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1302,7 +1305,7 @@ public class GameManager : MonoBehaviour
                             bluePlayerIV.transform.position = bluePlayerIV_Pos;
                             BluePlayerIV_Script.bluePlayerIV_ColName = TagHolder.NONE;
                             bluePlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                     }
 
@@ -1322,7 +1325,7 @@ public class GameManager : MonoBehaviour
                             redPlayerII.transform.position = redPlayerII_Pos;
                             RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
                             redPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1330,7 +1333,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIII.transform.position = redPlayerIII_Pos;
                             RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
                             redPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1338,7 +1341,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIV.transform.position = redPlayerIV_Pos;
                             RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
                             redPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
 
                         if (curruntPlayer == YellowPlayerI_Script.yellowPlayerI_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerI_Script.yellowPlayerI_ColName != TagHolder.STAR))
@@ -1347,7 +1350,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerI.transform.position = yellowPlayerI_Pos;
                             YellowPlayerI_Script.yellowPlayerI_ColName = TagHolder.NONE;
                             yellowPlayerI_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == YellowPlayerII_Script.yellowPlayerII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerII_Script.yellowPlayerII_ColName != TagHolder.STAR))
                         {
@@ -1355,7 +1358,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerII.transform.position = yellowPlayerII_Pos;
                             YellowPlayerII_Script.yellowPlayerII_ColName = TagHolder.NONE;
                             yellowPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == YellowPlayerIII_Script.yellowPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIII_Script.yellowPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1363,7 +1366,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerIII.transform.position = yellowPlayerIII_Pos;
                             YellowPlayerIII_Script.yellowPlayerIII_ColName = TagHolder.NONE;
                             yellowPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == YellowPlayerIV_Script.yellowPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIV_Script.yellowPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1371,7 +1374,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerIV.transform.position = yellowPlayerIV_Pos;
                             YellowPlayerIV_Script.yellowPlayerIV_ColName = TagHolder.NONE;
                             yellowPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                     }
                     break;
@@ -1581,7 +1584,7 @@ public class GameManager : MonoBehaviour
                         }
                     }
 
-                    if (curruntPlayerName.Contains( TagHolder.BLUE_PLAYER))
+                    if (curruntPlayerName.Contains(TagHolder.BLUE_PLAYER))
                     {
                         if (curruntPlayer == RedPlayerI_Script.redPlayerI_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerI_Script.redPlayerI_ColName != TagHolder.STAR))
                         {
@@ -1589,7 +1592,7 @@ public class GameManager : MonoBehaviour
                             redPlayerI.transform.position = redPlayerI_Pos;
                             RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
                             redPlayerI_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
                         {
@@ -1597,7 +1600,7 @@ public class GameManager : MonoBehaviour
                             redPlayerII.transform.position = redPlayerII_Pos;
                             RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
                             redPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1605,7 +1608,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIII.transform.position = redPlayerIII_Pos;
                             RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
                             redPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1613,7 +1616,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIV.transform.position = redPlayerIV_Pos;
                             RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
                             redPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
 
                         if (curruntPlayer == GreenPlayerI_Script.greenPlayerI_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerI_Script.greenPlayerI_ColName != TagHolder.STAR))
@@ -1622,7 +1625,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerI.transform.position = greenPlayerI_Pos;
                             GreenPlayerI_Script.greenPlayerI_ColName = TagHolder.NONE;
                             greenPlayerI_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == GreenPlayerII_Script.greenPlayerII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerII_Script.greenPlayerII_ColName != TagHolder.STAR))
                         {
@@ -1630,7 +1633,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerII.transform.position = greenPlayerII_Pos;
                             GreenPlayerII_Script.greenPlayerII_ColName = TagHolder.NONE;
                             greenPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == GreenPlayerIII_Script.greenPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIII_Script.greenPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1638,7 +1641,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerIII.transform.position = greenPlayerIII_Pos;
                             GreenPlayerIII_Script.greenPlayerIII_ColName = TagHolder.NONE;
                             greenPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == GreenPlayerIV_Script.greenPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIV_Script.greenPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1646,7 +1649,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerIV.transform.position = greenPlayerIV_Pos;
                             GreenPlayerIV_Script.greenPlayerIV_ColName = TagHolder.NONE;
                             greenPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
 
                         if (curruntPlayer == YellowPlayerI_Script.yellowPlayerI_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerI_Script.yellowPlayerI_ColName != TagHolder.STAR))
@@ -1655,7 +1658,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerI.transform.position = yellowPlayerI_Pos;
                             YellowPlayerI_Script.yellowPlayerI_ColName = TagHolder.NONE;
                             yellowPlayerI_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == YellowPlayerII_Script.yellowPlayerII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerII_Script.yellowPlayerII_ColName != TagHolder.STAR))
                         {
@@ -1663,7 +1666,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerII.transform.position = yellowPlayerII_Pos;
                             YellowPlayerII_Script.yellowPlayerII_ColName = TagHolder.NONE;
                             yellowPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == YellowPlayerIII_Script.yellowPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIII_Script.yellowPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1671,7 +1674,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerIII.transform.position = yellowPlayerIII_Pos;
                             YellowPlayerIII_Script.yellowPlayerIII_ColName = TagHolder.NONE;
                             yellowPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                         if (curruntPlayer == YellowPlayerIV_Script.yellowPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && YellowPlayerIV_Script.yellowPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1679,7 +1682,7 @@ public class GameManager : MonoBehaviour
                             yellowPlayerIV.transform.position = yellowPlayerIV_Pos;
                             YellowPlayerIV_Script.yellowPlayerIV_ColName = TagHolder.NONE;
                             yellowPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                         }
                     }
 
@@ -1691,7 +1694,7 @@ public class GameManager : MonoBehaviour
                             redPlayerI.transform.position = redPlayerI_Pos;
                             RedPlayerI_Script.redPlayerI_ColName = TagHolder.NONE;
                             redPlayerI_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == RedPlayerII_Script.redPlayerII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerII_Script.redPlayerII_ColName != TagHolder.STAR))
                         {
@@ -1699,7 +1702,7 @@ public class GameManager : MonoBehaviour
                             redPlayerII.transform.position = redPlayerII_Pos;
                             RedPlayerII_Script.redPlayerII_ColName = TagHolder.NONE;
                             redPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == RedPlayerIII_Script.redPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIII_Script.redPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1707,7 +1710,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIII.transform.position = redPlayerIII_Pos;
                             RedPlayerIII_Script.redPlayerIII_ColName = TagHolder.NONE;
                             redPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == RedPlayerIV_Script.redPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && RedPlayerIV_Script.redPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1715,7 +1718,7 @@ public class GameManager : MonoBehaviour
                             redPlayerIV.transform.position = redPlayerIV_Pos;
                             RedPlayerIV_Script.redPlayerIV_ColName = TagHolder.NONE;
                             redPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
 
                         if (curruntPlayer == GreenPlayerI_Script.greenPlayerI_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerI_Script.greenPlayerI_ColName != TagHolder.STAR))
@@ -1724,7 +1727,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerI.transform.position = greenPlayerI_Pos;
                             GreenPlayerI_Script.greenPlayerI_ColName = TagHolder.NONE;
                             greenPlayerI_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == GreenPlayerII_Script.greenPlayerII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerII_Script.greenPlayerII_ColName != TagHolder.STAR))
                         {
@@ -1732,7 +1735,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerII.transform.position = greenPlayerII_Pos;
                             GreenPlayerII_Script.greenPlayerII_ColName = TagHolder.NONE;
                             greenPlayerII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == GreenPlayerIII_Script.greenPlayerIII_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIII_Script.greenPlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1740,7 +1743,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerIII.transform.position = greenPlayerIII_Pos;
                             GreenPlayerIII_Script.greenPlayerIII_ColName = TagHolder.NONE;
                             greenPlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == GreenPlayerIV_Script.greenPlayerIV_ColName && (curruntPlayer != TagHolder.STAR && GreenPlayerIV_Script.greenPlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1748,7 +1751,7 @@ public class GameManager : MonoBehaviour
                             greenPlayerIV.transform.position = greenPlayerIV_Pos;
                             GreenPlayerIV_Script.greenPlayerIV_ColName = TagHolder.NONE;
                             greenPlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
 
                         if (curruntPlayer == BluePlayerI_Script.bluePlayerI_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerI_Script.bluePlayerI_ColName != TagHolder.STAR))
@@ -1757,7 +1760,7 @@ public class GameManager : MonoBehaviour
                             bluePlayerI.transform.position = bluePlayerI_Pos;
                             BluePlayerI_Script.bluePlayerI_ColName = TagHolder.NONE;
                             bluePlayerI_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == BluePlayerII_Script.bluePlayerII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerII_Script.bluePlayerII_ColName != TagHolder.STAR))
                         {
@@ -1765,7 +1768,7 @@ public class GameManager : MonoBehaviour
                             bluePlayerII.transform.position = bluePlayerII_Pos;
                             BluePlayerII_Script.bluePlayerII_ColName = TagHolder.NONE;
                             bluePlayerII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == BluePlayerIII_Script.bluePlayerIII_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIII_Script.bluePlayerIII_ColName != TagHolder.STAR))
                         {
@@ -1773,7 +1776,7 @@ public class GameManager : MonoBehaviour
                             bluePlayerIII.transform.position = bluePlayerIII_Pos;
                             BluePlayerIII_Script.bluePlayerIII_ColName = TagHolder.NONE;
                             bluePlayerIII_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                         if (curruntPlayer == BluePlayerIV_Script.bluePlayerIV_ColName && (curruntPlayer != TagHolder.STAR && BluePlayerIV_Script.bluePlayerIV_ColName != TagHolder.STAR))
                         {
@@ -1781,15 +1784,15 @@ public class GameManager : MonoBehaviour
                             bluePlayerIV.transform.position = bluePlayerIV_Pos;
                             BluePlayerIV_Script.bluePlayerIV_ColName = TagHolder.NONE;
                             bluePlayerIV_Steps = 0;
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                         }
                     }
                     break;
             }
         }
-            #endregion
+        #endregion
 
-            switch (MainMenuScript.howManyPlayers)
+        switch (MainMenuScript.howManyPlayers)
         {
             case 2:
                 if (playerTurn == TagHolder.RED)
@@ -1824,13 +1827,13 @@ public class GameManager : MonoBehaviour
 
                     SetFrame(Red: true);
                 }
-                if (playerTurn ==  TagHolder.YELLOW)
+                if (playerTurn == TagHolder.YELLOW)
                 {
                     diceRoll.position = yellowDiceRollPos.position;
 
                     SetFrame(Yellow: true);
                 }
-                if (playerTurn ==  TagHolder.BLUE)
+                if (playerTurn == TagHolder.BLUE)
                 {
                     diceRoll.position = blueDiceRollPos.position;
 
@@ -1863,13 +1866,13 @@ public class GameManager : MonoBehaviour
                     SetFrame(Green: true);
 
                 }
-                if (playerTurn ==  TagHolder.YELLOW)
+                if (playerTurn == TagHolder.YELLOW)
                 {
                     diceRoll.position = yellowDiceRollPos.position;
 
                     SetFrame(Yellow: true);
                 }
-                if (playerTurn ==  TagHolder.BLUE)
+                if (playerTurn == TagHolder.BLUE)
                 {
                     diceRoll.position = blueDiceRollPos.position;
 
@@ -1889,21 +1892,21 @@ public class GameManager : MonoBehaviour
         }
     }//initializeDice
 
-  
+
     public void DiceRoll()
     {
-        
+
         SoundManagerScript.diceAudioSource.Play();
         DiceRollButton.interactable = false;
 
         selectDiceNumAnimation = randomNo.Next(1, 6);
         if (selectDiceNumAnimation == 5) { selectDiceNumAnimation = 8; }
 
-       
-        switch(selectDiceValue)
+
+        switch (selectDiceValue)
         {
             case diceValue.none:
-                
+
                 break;
             case diceValue.one:
                 selectDiceNumAnimation = 1;
@@ -1912,7 +1915,7 @@ public class GameManager : MonoBehaviour
                 selectDiceNumAnimation = 2;
                 break;
             case diceValue.three:
-                selectDiceNumAnimation =3 ;
+                selectDiceNumAnimation = 3;
                 break;
             case diceValue.four:
                 selectDiceNumAnimation = 4;
@@ -2028,9 +2031,9 @@ public class GameManager : MonoBehaviour
 
                 //====================== PLAYERS DON'T HAVE ANY MOVES ,SWITCH TO NEXT TURN===============================
                 if (!redPlayerI_Border.activeInHierarchy && !redPlayerII_Border.activeInHierarchy &&
-                   !redPlayerIII_Border.activeInHierarchy && !redPlayerIV_Border.activeInHierarchy  )
+                   !redPlayerIII_Border.activeInHierarchy && !redPlayerIV_Border.activeInHierarchy)
                 {
-                    if(selectDiceNumAnimation == 8 || selectDiceNumAnimation == 4)
+                    if (selectDiceNumAnimation == 8 || selectDiceNumAnimation == 4)
                     {
                         playerTurn = TagHolder.RED;
                         InitializeDice();
@@ -2047,12 +2050,12 @@ public class GameManager : MonoBehaviour
                             break;
 
                         case 3:
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                             InitializeDice();
                             break;
 
                         case 4:
-                            playerTurn =  TagHolder.BLUE;
+                            playerTurn = TagHolder.BLUE;
                             InitializeDice();
                             break;
                     }
@@ -2134,7 +2137,7 @@ public class GameManager : MonoBehaviour
                             break;
 
                         case 4:
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                             InitializeDice();
                             break;
                     }
@@ -2213,7 +2216,7 @@ public class GameManager : MonoBehaviour
                             break;
 
                         case 3:
-                            playerTurn =  TagHolder.YELLOW;
+                            playerTurn = TagHolder.YELLOW;
                             InitializeDice();
                             break;
 
@@ -2337,6 +2340,7 @@ public class GameManager : MonoBehaviour
         SetBorder(_color);
         SetPlayersAnimation(_color);
         SetButton(_color);
+        string organizePlayers = _color;
         // 24          -      [0-24]         
         if (playerTurn == _color && (_MovementBlocks.Count - playerSteps) > selectDiceNumAnimation)//dice outcome is small than remaining steps to take
         {
@@ -2353,7 +2357,7 @@ public class GameManager : MonoBehaviour
 
                 playerSteps += selectDiceNumAnimation;
 
-                if (selectDiceNumAnimation == 8 ||selectDiceNumAnimation == 4)
+                if (selectDiceNumAnimation == 8 || selectDiceNumAnimation == 4)
                 {
                     playerTurn = _color;
                 }
@@ -2369,11 +2373,11 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 3:
-                                playerTurn =  TagHolder.BLUE;
+                                playerTurn = TagHolder.BLUE;
                                 break;
 
                             case 4:
-                                playerTurn =  TagHolder.BLUE;
+                                playerTurn = TagHolder.BLUE;
                                 break;
                         }
                     }
@@ -2390,7 +2394,7 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 4:
-                                playerTurn =  TagHolder.YELLOW;
+                                playerTurn = TagHolder.YELLOW;
                                 break;
                         }
                     }
@@ -2403,7 +2407,7 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 3:
-                                playerTurn =  TagHolder.YELLOW;
+                                playerTurn = TagHolder.YELLOW;
                                 break;
 
                             case 4:
@@ -2440,8 +2444,10 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0], "time", 1.5f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
+                
+
             }
             //else
             //{
@@ -2483,11 +2489,13 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0],  "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
+                    iTween.MoveTo(_playerObject, iTween.Hash("position", Player_Path[0], "time", 2.0f, "easetype", "elastic", "looptype", "none", "oncomplete", "InitializeDice", "oncompletetarget", this.gameObject));
                 }
                 _TotalPlayersInHouse += 1;
                 Debug.Log("Cool !!");
                 _PlayerButton.enabled = false;
+                
+
             }
             else
             {
@@ -2505,11 +2513,11 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 3:
-                                playerTurn =  TagHolder.BLUE;
+                                playerTurn = TagHolder.BLUE;
                                 break;
 
                             case 4:
-                                playerTurn =  TagHolder.BLUE;
+                                playerTurn = TagHolder.BLUE;
                                 break;
                         }
                     }
@@ -2526,7 +2534,7 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 4:
-                                playerTurn =  TagHolder.YELLOW;
+                                playerTurn = TagHolder.YELLOW;
                                 break;
                         }
                     }
@@ -2539,7 +2547,7 @@ public class GameManager : MonoBehaviour
                                 break;
 
                             case 3:
-                                playerTurn =  TagHolder.YELLOW;
+                                playerTurn = TagHolder.YELLOW;
                                 break;
 
                             case 4:
@@ -2564,16 +2572,121 @@ public class GameManager : MonoBehaviour
                                 break;
                         }
                     }
-                    OrganiizePlayers();
                     InitializeDice();
                 }
             }
         }
+        OrganizePlayer(organizePlayers);
+    }
+
+    struct PlayerScripts
+    {
+        GameObject _player;
+        
+    }
+  void AddToDic(ref Dictionary<string, List<GameObject>> playerData ,string block, GameObject player)
+    {
+        
+        if(playerData.ContainsKey(block))
+        {
+            playerData[block].Add(player);
+        }
+        else
+        {
+            playerData.Add(block , new List<GameObject>() { player});
+        }
+    }
+
+    private void OrganizePlayer(string colorOfPlayer)
+    {
+        Dictionary<string, List<GameObject>> playerData = new Dictionary<string, List<GameObject>>();
+       
+        AddToDic(ref playerData, RedPlayerI_Script.redPlayerI_ColName, redPlayerI); 
+        AddToDic(ref playerData, RedPlayerII_Script.redPlayerII_ColName, redPlayerII);
+        AddToDic(ref playerData, RedPlayerIII_Script.redPlayerIII_ColName, redPlayerIII);
+        AddToDic(ref playerData, RedPlayerIV_Script.redPlayerIV_ColName, redPlayerIV);
+        AddToDic(ref playerData, GreenPlayerI_Script.greenPlayerI_ColName, greenPlayerI);
+        AddToDic(ref playerData, GreenPlayerII_Script.greenPlayerII_ColName, greenPlayerII);
+        AddToDic(ref playerData, GreenPlayerIII_Script.greenPlayerIII_ColName, greenPlayerIII);
+        AddToDic(ref playerData, GreenPlayerIV_Script.greenPlayerIV_ColName, greenPlayerIV);
+
+        //playerData[RedPlayerI_Script.redPlayerI_ColName].Add(redPlayerI);
+        //playerData[RedPlayerII_Script.redPlayerII_ColName].Add(redPlayerII);
+        //playerData[RedPlayerIII_Script.redPlayerIII_ColName].Add(redPlayerIII);
+        //playerData[RedPlayerIV_Script.redPlayerIV_ColName].Add(redPlayerIV); 
+        
+        //playerData[BluePlayerI_Script.bluePlayerI_ColName].Add(bluePlayerI);
+        //playerData[BluePlayerII_Script.bluePlayerII_ColName].Add(bluePlayerII);
+        //playerData[BluePlayerIII_Script.bluePlayerIII_ColName].Add(bluePlayerIII);
+        //playerData[BluePlayerIV_Script.bluePlayerIV_ColName].Add(bluePlayerIV);
+
+        //playerData[GreenPlayerI_Script.greenPlayerI_ColName].Add(greenPlayerI);
+        //playerData[GreenPlayerII_Script.greenPlayerII_ColName].Add(greenPlayerII);
+        //playerData[GreenPlayerIII_Script.greenPlayerIII_ColName].Add(greenPlayerIII);
+        //playerData[GreenPlayerIV_Script.greenPlayerIV_ColName].Add(greenPlayerIV);
+
+        //playerData[YellowPlayerI_Script.yellowPlayerI_ColName].Add(yellowPlayerI);
+        //playerData[YellowPlayerII_Script.yellowPlayerII_ColName].Add(yellowPlayerII);
+        //playerData[YellowPlayerIII_Script.yellowPlayerIII_ColName].Add(yellowPlayerIII);
+        //playerData[YellowPlayerIV_Script.yellowPlayerIV_ColName].Add(yellowPlayerIV);
+
+        foreach(String block in playerData.Keys)
+        {
+            if (block == TagHolder.STAR) continue;
+            Vector3 offsetByPixel = Vector3.zero;
+            foreach(GameObject player in playerData[block])
+            {   if (! player.gameObject.name.ToLower().Contains(colorOfPlayer.ToLower())) continue;
+                player.gameObject.transform.position += offsetByPixel;
+                offsetByPixel.x += 7f;
+            }
+        }
+
+
     }
 
     private void OrganiizePlayers()
     {
-       
+        //print("Organize player");
+        float displacement = 6f;
+
+        foreach (GameObject playerContainer in PlayersContainer)
+        {
+            List<Transform> positionList = new List<Transform>();
+            //print(playerContainer.name);
+            foreach (Transform player in playerContainer.gameObject.GetComponentInChildren<Transform>())
+            {
+                //print(player.gameObject.name);
+                positionList.Add(player);
+            }
+            print(playerContainer.gameObject.name);
+
+            for (int i = 0; i < positionList.Count - 1; i++)
+            {
+
+
+                for (int j = i + 1; j < positionList.Count; j++)
+                {
+                    //print(i+"  "+positionList[i].position +"\t"+j+"  "+ positionList[j].position + "\t "+ (positionList[i].position == positionList[j].position));
+                    //print("(Math.Abs( positionList[i].position.x+2) >= Math.Abs(positionList[j].position.x) &&" + (Math.Abs(positionList[i].position.x + 2) >= Math.Abs(positionList[j].position.x) )+
+                    //     " Math.Abs(positionList[j].position.x) >= Math.Abs(positionList[i].position.x - 2))" +( Math.Abs(positionList[j].position.x) >= Math.Abs(positionList[i].position.x - 2))+
+                    //   " && (Math.Abs(positionList[i].position.y + 2) >= Math.Abs(positionList[j].position.y) &&" + (Math.Abs(positionList[i].position.y + 2) >= Math.Abs(positionList[j].position.y))+
+
+                    //     "   Math.Abs(positionList[j].position.y) >= Math.Abs(positionList[i].position.y - 2))" + (Math.Abs(positionList[j].position.y) >= Math.Abs(positionList[i].position.y - 2)) );
+                    print(i + "\t" + "x : " + Math.Abs(positionList[i].position.x) + "\t" + j + "\t" + "x : " + Math.Abs(positionList[j].position.x) + "\n" +
+                          i + "\t" + "y : " + Math.Abs(positionList[i].position.y) + "\t" + j + "\t" + "y : " + Math.Abs(positionList[j].position.y));
+                    if ((Math.Abs(positionList[i].position.x + 10) >= Math.Abs(positionList[j].position.x)) &&
+                          (Math.Abs(positionList[j].position.x) >= Math.Abs(positionList[i].position.x - 10))
+                        && (Math.Abs(positionList[i].position.y + 10) >= Math.Abs(positionList[j].position.y)) &&
+                            (Math.Abs(positionList[j].position.y) >= Math.Abs(positionList[i].position.y - 10)))
+                    {
+                        print(i + " \t " + j);
+                        positionList[j].position = positionList[i].position + new Vector3(displacement, 0f, 0f);
+
+                    }
+                }
+            }
+        }
+
     }
 
     #region Red Player Movement
@@ -2602,7 +2715,7 @@ public class GameManager : MonoBehaviour
     #region Blue Player Movement
     public void BluePlayer1Movement()
     {
-        PlayerMovement(TagHolder.BLUE, blueMovementBlocks, ref bluePlayerI_Steps, PlayerName.BLUE_PLAYER_1, ref bluePlayerI, 
+        PlayerMovement(TagHolder.BLUE, blueMovementBlocks, ref bluePlayerI_Steps, PlayerName.BLUE_PLAYER_1, ref bluePlayerI,
             ref totalBlueInHouse, ref BluePlayerI_Button,
             bluePlayerII_Steps + bluePlayerIII_Steps + bluePlayerIV_Steps);
     }
@@ -2878,7 +2991,7 @@ public class GameManager : MonoBehaviour
                 playerTurn = "RED";
 
                 SetFrame(Red: true);
-                
+
                 diceRoll.position = redDiceRollPos.position;
                 // keep all players active
                 break;
